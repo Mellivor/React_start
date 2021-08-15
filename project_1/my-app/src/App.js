@@ -11,8 +11,9 @@ const App = () => {
     <div className = 'app_wrapper' >
       
       <Header />
-      <Nav />
+      
       <Cont />
+      <Nav />
     </div>  
     
   );

@@ -1,8 +1,9 @@
+import stl from './Cont.module.css';
 const Cont = () => {
   return (
     <div className='cont'>
-            <div>
-              <img  className = 'dragonImg'src='http://online.elderscrolls.net/images/8/87/Img-header-middle-500-22.0.jpg'></img>
+            <div className = {stl.three_dprint}>
+        <img className={stl.imag_set} src='https://evolution.skf.com/wp-content/uploads/sites/5/2020/08/gears-top-image.jpg'></img>
             </div>
             <div>
               

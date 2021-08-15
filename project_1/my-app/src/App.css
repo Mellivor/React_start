@@ -1,31 +1,33 @@
 .app_wrapper{
   margin: 0 auto;
-  display: grid;
-  width: 1200px;
-  grid-template-areas: 
-  "h h h"
-  "s c c";
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
-  grid-gap: 6px;
+  padding: 0px 10px;
+  
 }
 
 
 
+#root{
 
+height: 100vh;
+}
+.app_wrapper{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  
+}
 .sidebar{
-  grid-area: s;
-  background-color: rgb(238, 255, 0);
+  
+  background-color: rgb(56, 113, 199);
   border-radius: 7px;
 }
 
 .cont{
-  background-color: rgb(189, 44, 202);
-  grid-area: c;
+  background-color: rgb(5, 42, 58);
+  
   border-radius: 7px;
   padding: 5px;
+  flex-grow: 1;
 }
-.dragonImg{
-  padding: 5px;
-  width: 90%;
-}
+

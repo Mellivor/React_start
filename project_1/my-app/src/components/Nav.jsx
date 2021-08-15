@@ -1,10 +1,11 @@
 const Nav = () => {
   return (
-<nav className ='sidebar'>
+<futer className ='sidebar'>
         prof
         
         mess
-      </nav>
+    
+</futer>
 );
 }
 

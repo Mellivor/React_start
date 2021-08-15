@@ -1,0 +1,15 @@
+.three_dprint{
+  
+  height: 80px;
+  border-radius: 5px;
+  background-color: #fff;
+  overflow: hidden;
+  
+}
+.imag_set{
+    width: 100%;
+    height: 100%;
+object-fit: cover;
+object-position: 0px 37%;
+
+}

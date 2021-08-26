@@ -3,6 +3,8 @@
   background-color: rgb(81, 123, 137);
   border-radius: 7px;
   padding: 4px;
+  position: sticky;
+  top: 0px;
 }
 .header img{
  height: 50px;
@@ -13,4 +15,10 @@
   justify-content: space-between;
   color: rgb(231, 6, 74);
   align-items: center;
+}
+.linnks {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-family: 'Special Elite', cursive;
+  font-size: 20px;
 }

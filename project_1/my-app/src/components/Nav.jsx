@@ -1,11 +1,11 @@
 const Nav = () => {
   return (
-<futer className ='sidebar'>
+<footer className ='sidebar'>
         prof
-        
+        <a href="#">blablabla</a>
         mess
     
-</futer>
+</footer>
 );
 }
 

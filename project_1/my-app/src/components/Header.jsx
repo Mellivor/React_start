@@ -5,11 +5,11 @@ const Header = () => {
     <header className={stl.header}>
       <nav className={stl.top_nav}>
         <a href="#"><Herb /></a>
-        <a href="#"><div>Profile</div></a>
-        <a href="#"><div>Mellages</div></a>
-        <a href="#"><div>News</div></a>
-        <a href="#"><div>Music</div></a>
-        <a href="#"><div>Setings</div></a>
+        <a className={stl.linnks} href="#"><div >Profile.</div></a>
+        <a className={stl.linnks} href="#"><div >Messages.</div></a>
+        <a className={stl.linnks} href="#"><div >News.</div></a>
+        <a className={stl.linnks} href="#"><div >Music.</div></a>
+        <a className={stl.linnks} href="#"><div >Setings.</div></a>
       </nav>
     </header>
 );

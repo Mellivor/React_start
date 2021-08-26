@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+
 .app_wrapper{
   margin: 0 auto;
   padding: 0px 10px;
@@ -23,11 +26,5 @@ height: 100vh;
   border-radius: 7px;
 }
 
-.cont{
-  background-color: rgb(5, 42, 58);
-  
-  border-radius: 7px;
-  padding: 5px;
-  flex-grow: 1;
-}
+
 

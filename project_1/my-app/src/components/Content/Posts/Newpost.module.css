@@ -1,0 +1,12 @@
+.posts_wrapper_post{
+  margin: 0px 0px 10px 0px;
+  display: flex;
+}
+.posts_wrapper_post_circle{
+ border-radius: 20px;
+ background-color: #fff;
+ width: 20px;
+}
+.posts_wrapper_post_text{
+  margin: 0px 0px 0px 10px;
+}

@@ -13,7 +13,7 @@ const App = () => {
       <Header />
       <div className='cont'> 
         <Route path='/profile' component={Cont} />
-          <Route path='/dialogs' component={Dialogs} />
+        <Route path='/dialogs' component={Dialogs} />
       </div>
       <Nav />
     </div>  

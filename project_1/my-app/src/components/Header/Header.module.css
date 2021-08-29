@@ -6,9 +6,7 @@
   position: sticky;
   top: 0px;
 }
-.header img{
- height: 50px;
-}
+
 .top_nav{
   display: flex;
   margin: 0px 10px;

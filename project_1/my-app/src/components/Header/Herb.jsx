@@ -1,8 +1,9 @@
+import stl from './Herb.module.css';
 
 const Herb = () => {
   return (
     
-        <img src='engineering1.png'></img>
+    <img className={ stl.herb } src='engineering1.png'></img>
         
 );
 }

@@ -10,7 +10,7 @@ const Cont = () => {
       </div>
       <Profile />
       <Posts/>
-      <Dialogs/>      
+           
   </div>
           
     

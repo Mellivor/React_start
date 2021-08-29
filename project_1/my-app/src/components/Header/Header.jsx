@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header className={stl.header}>
       <nav className={stl.top_nav}>
-        <a href="#"><Herb /></a>
+        <a href="#"><Herb className = {stl.img} /></a>
         <NavLink className={stl.linnks} activeClassName={stl.active} to="/dialogs"><div >Messages.</div></NavLink>
         <NavLink className={stl.linnks} activeClassName={stl.active} to="/profile"><div >Profile.</div></NavLink>
         <NavLink className={stl.linnks} activeClassName={stl.active} to="/news"><div >News.</div></NavLink>

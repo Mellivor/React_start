@@ -1,10 +1,10 @@
 import stl from './Newpost.module.css';
 const Newpost = (props) => {
   return (
-      <div className={stl.posts_wrapper_post}>
-          <div className={stl.posts_wrapper_post_circle}>
+      <div className={stl.post}>
+          <div className={stl.circle}>
           </div>
-          <div className={stl.posts_wrapper_post_text}>
+          <div className={stl.text}>
             {props.message}
           </div>
           <p>likes: {props.likescount}</p>

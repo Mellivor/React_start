@@ -1,4 +1,3 @@
-import React from 'react';
 import stl from './Message.module.css';
 
 const Message = (props) => {

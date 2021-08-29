@@ -1,5 +1,4 @@
 .header{
-  
   background-color: rgb(81, 123, 137);
   border-radius: 7px;
   padding: 4px;
@@ -7,7 +6,7 @@
   top: 0px;
 }
 
-.top_nav{
+.nav{
   display: flex;
   margin: 0px 10px;
   justify-content: space-between;
@@ -19,7 +18,7 @@
   text-decoration: none;
   color: rgb(255, 255, 255);
   font-family: 'Special Elite', cursive;
-  font-size: 20px;
+  font-size: 22px;
 }
 .active{
   transition: 800ms;

@@ -1,6 +1,5 @@
-import React from 'react';
-import Dialogitem from './Dialogitem';
-import Message from './Message';
+import Dialogitem from './Dialogitem/Dialogitem';
+import Message from './Message/Message';
 import stl from './Dialogs.module.css';
 
 const Dialogs = (props) => {

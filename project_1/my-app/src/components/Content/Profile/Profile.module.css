@@ -1,17 +1,17 @@
-.profile_wrapper{
+.profile{
   display: flex;
   margin: 5px 0px 0px 0px;
   color: rgb(255, 255, 255);
 }
-.profile_wrapper_text{
+.text{
   padding: 0px 0px 0px 10px;
 }
-.profile_wrapper_text_name{
+.name{
   margin: 0px;
   font-weight: 700;
   letter-spacing: 2px;
 }
-.profile_wrapper_icon{
+.awatar{
   padding: 10px 0px 0px 0px;
   height: 100px;
   width: 100px;

@@ -1,5 +1,5 @@
 import stl from './Cont.module.css';
-import Profile from './Profile';
+import Profile from './Profile/Profile';
 import Posts from './Posts/Posts';
 import Dialogs from '../Dialogs/Dialogs';
 const Cont = () => {

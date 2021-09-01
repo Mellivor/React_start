@@ -7,7 +7,7 @@ const Newpost = (props) => {
           <div className={stl.text}>
             {props.message}
           </div>
-          <p>likes: {props.likescount}</p>
+          <p>likes: {props.likes}</p>
       </div>
 );
 }

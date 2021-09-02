@@ -9,8 +9,7 @@ const Cont = (props) => {
         <img className={stl.gearsimag} src='https://evolution.skf.com/wp-content/uploads/sites/5/2020/08/gears-top-image.jpg' alt = 'gears'></img>
       </div>
       <Profile />
-      <Posts posts = {props.post} />
-           
+      <Posts posts = {props.state.posts} />      
   </div>
           
     

@@ -1,9 +1,17 @@
-import stl from './Message.module.css';
+import Avatar from '../../Content/Profile/Avatar/Avatar';
+import './Message.css';
 
 const Message = (props) => {
+    
     return (
-    <div className={stl.message}>
-            { props.message }
+    <div className={props.who}>
+            <div className = 'avatar' >
+                <Avatar />
+            </div >
+            <div className='message_text'>
+              {props.message}  
+            </div>
+            
     </div> 
     )
 };

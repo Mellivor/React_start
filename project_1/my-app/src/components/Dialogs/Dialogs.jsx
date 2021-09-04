@@ -3,7 +3,7 @@ import Message from './Message/Message';
 import stl from './Dialogs.module.css';
 
 const Dialogs = (props) => {
-    let messageElement = props.state.messages.map (m => <Message message={m.messages} />)
+    let messageElement = props.state.messages.map (m => <Message message={m.messages} who ={m.who} />)
     let dialogsElement = props.state.dialogs.map(d => <Dialogitem name={d.name} id={d.id} />)
     let friendElement = props.state.friends.map (f =>  <Dialogitem name = {f.name}  id = {f.id}/>)
     return (

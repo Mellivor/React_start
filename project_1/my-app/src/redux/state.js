@@ -14,10 +14,10 @@ let state = {
             { id: 2, name: 'Vasa' },
         ],
         messages: [
-            { id: 1, messages: 'Hello' },
-            { id: 2, messages: 'Vatsapp' },
-            { id: 6, messages: 'Reacr rules' },
-            { id: 9, messages: 'Yohoho' }
+            { who: 'you', messages: 'Hello' },
+            { who: 'him', messages: 'Vatsapp' },
+            { who: 'you', messages: 'Reacr rules' },
+            { who: 'him', messages: 'Yohoho' }
         ],
     },
     profilePage: {

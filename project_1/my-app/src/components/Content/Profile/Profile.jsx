@@ -1,12 +1,7 @@
+import Avatar from './Avatar/Avatar';
 import stl from './Profile.module.css';
-const Avatar = () => {
-  return (
-      <div>
-        <img className={stl.awatar} src="https://st.depositphotos.com/2101611/3925/v/600/depositphotos_39258143-stock-illustration-businessman-avatar-profile-picture.jpg" alt="Profile icon" />
-      </div>
-      
-);
-}
+
+
 const Profile = () => {
   return (
     <div className={stl.profile}>

@@ -9,6 +9,10 @@ let state = {
             { id: 9, name: 'Yorik' },
             { id: 2, name: 'janna' },
         ],
+        friends: [
+            { id: 1, name: 'Dimon' },
+            { id: 2, name: 'Vasa' },
+        ],
         messages: [
             { id: 1, messages: 'Hello' },
             { id: 2, messages: 'Vatsapp' },

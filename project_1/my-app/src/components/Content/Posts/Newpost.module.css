@@ -2,10 +2,11 @@
   margin: 0px 0px 10px 0px;
   display: flex;
 }
-.circle{
+.circle img{
  border-radius: 20px;
  background-color: #fff;
- width: 20px;
+ width: 30px;
+ height: 30px;
 }
 .text{
   margin: 0px 0px 0px 10px;

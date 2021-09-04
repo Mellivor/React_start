@@ -1,8 +1,10 @@
+import Avatar from '../Profile/Avatar/Avatar';
 import stl from './Newpost.module.css';
 const Newpost = (props) => {
   return (
       <div className={stl.post}>
-          <div className={stl.circle}>
+      <div className={stl.circle}>
+          <Avatar/>
           </div>
           <div className={stl.text}>
             {props.message}

@@ -1,4 +1,5 @@
-import rerenderEntireTree from '../Render';
+let rerenderEntireTree;
+
 let state = {
     messagesPage: {
         dialogs: [
@@ -30,10 +31,17 @@ let state = {
         nevPostText: ''
     }
 };
-export let addPost = (postMessage) => {
-    let newPost = { id: 5, post: postMessage, likes: 0 };
+export const addPost = () => {
+    let newPost = { id: 5, post: state.profilePage.nevPostText, likes: 0 };
     state.profilePage.posts.push(newPost);
+    state.profilePage.nevPostText = '';
     rerenderEntireTree(state);
 };
-
+export const uppdatePost = (text) => {
+    state.profilePage.nevPostText = text;
+    rerenderEntireTree(state);
+};
+export const observer = (observ) => {
+    rerenderEntireTree = observ;
+};
 export default state;

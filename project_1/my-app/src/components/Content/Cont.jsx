@@ -8,7 +8,7 @@ const Cont = (props) => {
     <div className={stl.cont}>
       <Gearlogo/>
       <Profile />
-      <Posts posts = {props.state.posts} />      
+      <Posts posts={props.state.posts} addPost={props.addPost }/>
   </div>   
 );
 }

@@ -28,3 +28,12 @@ align-items: flex-start;
 .friends{
     margin: 0px 0px 3% 0px;
 }
+.textarea{
+  width: 98%;
+  height: 55px;
+  resize: none;
+}
+.button{
+  display: flex;
+  justify-content: flex-end;
+}

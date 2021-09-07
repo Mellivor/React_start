@@ -7,15 +7,21 @@ import Dialogs from './components/Dialogs/Dialogs';
 import { Route } from 'react-router';
 
 
+
+
 const App = (props) => {
 
   return (
     
     <div className = 'app_wrapper' >
-      <Header dialog={props.state.messagesPage.dialogs} />
+      <Header dialog={props.store._state.messagesPage.dialogs} />
       <div className='cont'> 
-        <Route path='/profile' render={() => <Cont state={props.state.profilePage} addPost={props.addPost} uppdatePost={ props.uppdatePost}/>} />
-          <Route path='/dialogs' render={() => < Dialogs state = {props.state.messagesPage} />} />
+        <Route path='/profile' render={() => <Cont
+          state={props.store._state.profilePage}
+          addPost={props.store.addPost.bind(props.store)}
+          uppdatePost={props.store.uppdatePost.bind(props.store)} />} />
+        <Route path='/dialogs' render={() => < Dialogs
+          state={props.store.getState()} />} />
       </div>
       <Nav />
     </div>

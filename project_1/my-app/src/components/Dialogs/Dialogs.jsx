@@ -7,9 +7,9 @@ import React from 'react';
   
 
 const Dialogs = (props) => {
-    let messageElement = props.state.messages.map (m => <Message message={m.messages} who ={m.who} />)
-    let dialogsElement = props.state.dialogs.map(d => <Dialogitem name={d.name} id={d.id} />)
-    let friendElement = props.state.friends.map(f => <Dialogitem name={f.name} id={f.id} />)
+    let messageElement = props.state.messagesPage.messages.map (m => <Message message={m.messages} who ={m.who} />)
+    let dialogsElement = props.state.messagesPage.dialogs.map(d => <Dialogitem name={d.name} id={d.id} />)
+    let friendElement = props.state.messagesPage.friends.map(f => <Dialogitem name={f.name} id={f.id} />)
      
     let addMessage = () => {
     let text = newMessageElement.current.value;

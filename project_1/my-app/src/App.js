@@ -15,11 +15,14 @@ const App = (props) => {
     
     <div className = 'app_wrapper' >
       <Header dialog={props.store._state.messagesPage.dialogs} />
-      <div className='cont'> 
+      <div className='cont'>
         <Route path='/profile' render={() => <Cont
           state={props.store._state.profilePage}
+          dispatch = {props.store.dispatch.bind(props.store)} />} />
+        {/* <Route path='/profile' render={() => <Cont
+          state={props.store._state.profilePage}
           addPost={props.store.addPost.bind(props.store)}
-          uppdatePost={props.store.uppdatePost.bind(props.store)} />} />
+          uppdatePost={props.store.uppdatePost.bind(props.store)} />} /> */}
         <Route path='/dialogs' render={() => < Dialogs
           state={props.store.getState()} />} />
       </div>

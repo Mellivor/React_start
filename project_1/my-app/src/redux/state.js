@@ -34,21 +34,31 @@ let store = {
             nevPostText: ''
         }
     },
+    dispatch (action) {
+        if (action.tipe === 'ADD_POST') {
+            let newPost = { id: 5, post: this._state.profilePage.nevPostText, likes: 0 };
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.nevPostText = '';
+            this._callSubscriber(this);
+        } else if (action.tipe === 'UPDATE_TEXT') {
+            this._state.profilePage.nevPostText = action.text;
+            this._callSubscriber(this);
+        }
+    },
     getState() {
         return this._state;
         },
-    addPost() {
-        debugger;
-        let newPost = { id: 5, post: this._state.profilePage.nevPostText, likes: 0 };
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.nevPostText = '';
-        this._callSubscriber(this);
-    },
+    // addPost() {
+    //     let newPost = { id: 5, post: this._state.profilePage.nevPostText, likes: 0 };
+    //     this._state.profilePage.posts.push(newPost);
+    //     this._state.profilePage.nevPostText = '';
+    //     this._callSubscriber(this);
+    // },
     
-    uppdatePost (text) {
-    this._state.profilePage.nevPostText = text;
-    this._callSubscriber(this);
-},
+//     uppdatePost (text) {
+//     this._state.profilePage.nevPostText = text;
+//     this._callSubscriber(this);
+// },
      observer (observ) {
     this._callSubscriber = observ;
 },

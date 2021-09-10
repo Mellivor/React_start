@@ -5,13 +5,14 @@ import React from 'react';
 const Posts = (props) => {
   let postElem = props.posts.map(m => <Newpost message={m.post} likes={m.likes} />)
   let addPosts = () => {
-    props.addPost();
+    props.dispatch({ tipe: 'ADD_POST'});
   };
+  
   let newPostElement = React.createRef();
   
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    props.uppdatePost(text);
+    props.dispatch({ tipe: 'UPDATE_TEXT', text: text});
   };
   return (
     <div className={stl.posts_wrapper}>

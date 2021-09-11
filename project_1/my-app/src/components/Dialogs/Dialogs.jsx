@@ -2,7 +2,8 @@ import Dialogitem from './Dialogitem/Dialogitem';
 import Message from './Message/Message';
 import stl from './Dialogs.module.css';
 import React from 'react';
-import { actionCreateraddMessage, actionCreaterUpdMessageText } from '../../redux/state';
+import { actionCreateraddMessage, actionCreaterUpdMessageText } from '../../redux/messagesPage_reducer';
+
 
 
   

@@ -1,7 +1,8 @@
 import Newpost from './Newpost';
 import stl from './Posts.module.css';
 import React from 'react';
-import { actionCreaterAddPost, actionCreaterUpdatePost } from '../../../redux/state';
+import { actionCreaterAddPost, actionCreaterUpdatePost } from '../../../redux/profilePage_reducer';
+
 
 const Posts = (props) => {
   let postElem = props.posts.map(m => <Newpost message={m.post} likes={m.likes} />)

@@ -8,7 +8,7 @@ const Cont = (props) => {
     <div className={stl.cont}>
       <Gearlogo/>
       <Profile />
-      <Posts posts={props.state.posts} newPostText={props.state.nevPostText} dispatch = {props.dispatch}/>
+      <Posts posts={props.state.profilePage.posts} newPostText={props.state.profilePage.nevPostText} dispatch = {props.dispatch}/>
   </div>   
 );
 }

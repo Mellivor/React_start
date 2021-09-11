@@ -2,6 +2,7 @@ import Dialogitem from './Dialogitem/Dialogitem';
 import Message from './Message/Message';
 import stl from './Dialogs.module.css';
 import React from 'react';
+import { actionCreateraddMessage, actionCreaterUpdMessageText } from '../../redux/state';
 
 
   
@@ -12,10 +13,13 @@ const Dialogs = (props) => {
     let friendElement = props.state.messagesPage.friends.map(f => <Dialogitem name={f.name} id={f.id} />)
      
     let addMessage = () => {
-    let text = newMessageElement.current.value;
-    alert(text);
+    props.dispatch(actionCreateraddMessage())
     };
-    let newMessageElement = React.createRef();
+    let updatMessageText = (e) => {
+    let text = e.target.value;
+    props.dispatch(actionCreaterUpdMessageText(text))
+    };
+    
     return (
         <div className={stl.dialogs}>
             <div className={stl.items}>
@@ -29,8 +33,8 @@ const Dialogs = (props) => {
             <div className={stl.separator}></div>
             <div className={stl.messages}>
                 {messageElement}
-                <textarea ref = {newMessageElement} className={stl.textarea} id="post" name="post" placeholder="My news">
-                </textarea>
+                <textarea value={props.state.messagesPage.newMessageText}
+                    onChange={ updatMessageText } className={stl.textarea} />
                 <div className={stl.button}>
                 <button onClick = {addMessage}>Send</button>
                 </div>

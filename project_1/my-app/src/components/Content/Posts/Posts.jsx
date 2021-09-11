@@ -1,18 +1,19 @@
 import Newpost from './Newpost';
 import stl from './Posts.module.css';
 import React from 'react';
+import { actionCreaterAddPost, actionCreaterUpdatePost } from '../../../redux/state';
 
 const Posts = (props) => {
   let postElem = props.posts.map(m => <Newpost message={m.post} likes={m.likes} />)
   let addPosts = () => {
-    props.dispatch({ tipe: 'ADD_POST'});
+    props.dispatch(actionCreaterAddPost());
   };
   
   let newPostElement = React.createRef();
   
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    props.dispatch({ tipe: 'UPDATE_TEXT', text: text});
+    props.dispatch(actionCreaterUpdatePost(text));
   };
   return (
     <div className={stl.posts_wrapper}>

@@ -1,3 +1,5 @@
+const addPost = 'ADD_POST';
+const updPost = 'UPDATE_TEXT';
 let store = {
 
     _callSubscriber: '',
@@ -34,33 +36,26 @@ let store = {
             nevPostText: ''
         }
     },
+    
     dispatch (action) {
-        if (action.tipe === 'ADD_POST') {
+        if (action.tipe === addPost) {
             let newPost = { id: 5, post: this._state.profilePage.nevPostText, likes: 0 };
             this._state.profilePage.posts.push(newPost);
             this._state.profilePage.nevPostText = '';
             this._callSubscriber(this);
-        } else if (action.tipe === 'UPDATE_TEXT') {
+        } else if (action.tipe === updPost) {
             this._state.profilePage.nevPostText = action.text;
             this._callSubscriber(this);
         }
     },
     getState() {
-        return this._state;
-        },
-    // addPost() {
-    //     let newPost = { id: 5, post: this._state.profilePage.nevPostText, likes: 0 };
-    //     this._state.profilePage.posts.push(newPost);
-    //     this._state.profilePage.nevPostText = '';
-    //     this._callSubscriber(this);
-    // },
+    return this._state;
+    },
     
-//     uppdatePost (text) {
-//     this._state.profilePage.nevPostText = text;
-//     this._callSubscriber(this);
-// },
-     observer (observ) {
+    observer (observ) {
     this._callSubscriber = observ;
 },
 }
+export const actionCreaterAddPost = () => ({ tipe: addPost });
+export const actionCreaterUpdatePost = (text) => ({ tipe: updPost, text: text });
 export default store;

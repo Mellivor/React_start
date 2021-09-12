@@ -1,7 +1,31 @@
 const updMessageText = 'UPDATE_MESSAGE_TEXT';
 const addMessage = 'ADD_MESSAGE';
-const messagesPage_reducer = (state, action) => {
-    switch (action.tipe){
+
+let initialState = {
+    dialogs: [
+        { id: 1, name: 'Dimon' },
+        { id: 2, name: 'Vasa' },
+        { id: 6, name: 'Sergey' },
+        { id: 9, name: 'Pedro' },
+        { id: 9, name: 'Pedro' },
+        { id: 9, name: 'Yorik' },
+        { id: 2, name: 'janna' },
+    ],
+    friends: [
+        { id: 1, name: 'Dimon' },
+        { id: 2, name: 'Vasa' },
+    ],
+    messages: [
+        { who: 'you', messages: 'Hello' },
+        { who: 'him', messages: 'Vatsapp' },
+        { who: 'you', messages: 'Reacr rules' },
+        { who: 'him', messages: 'Yohoho' },
+    ],
+    newMessageText: '',
+};
+
+const messagesPage_reducer = (state = initialState, action) => {
+    switch (action.type){
         case updMessageText :
             state.newMessageText = action.text;
             return state;
@@ -15,6 +39,6 @@ const messagesPage_reducer = (state, action) => {
     }
     
 };
-export const actionCreateraddMessage = () => ({ tipe: addMessage });
-export const actionCreaterUpdMessageText = (text) => ({ tipe: updMessageText, text: text });
+export const actionCreateraddMessage = () => ({ type: addMessage });
+export const actionCreaterUpdMessageText = (text) => ({ type: updMessageText, text: text });
 export default messagesPage_reducer;

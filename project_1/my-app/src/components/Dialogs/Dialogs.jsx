@@ -9,16 +9,17 @@ import { actionCreateraddMessage, actionCreaterUpdMessageText } from '../../redu
   
 
 const Dialogs = (props) => {
-    let messageElement = props.state.messagesPage.messages.map (m => <Message message={m.messages} who ={m.who} />)
-    let dialogsElement = props.state.messagesPage.dialogs.map(d => <Dialogitem name={d.name} id={d.id} />)
-    let friendElement = props.state.messagesPage.friends.map(f => <Dialogitem name={f.name} id={f.id} />)
-     
+    let messageElement = props.state.messages.map (m => <Message message={m.messages} who ={m.who} />)
+    let dialogsElement = props.state.dialogs.map(d => <Dialogitem name={d.name} id={d.id} />)
+    let friendElement = props.state.friends.map(f => <Dialogitem name={f.name} id={f.id} />)
+    
     let addMessage = () => {
     props.dispatch(actionCreateraddMessage())
     };
     let updatMessageText = (e) => {
-    let text = e.target.value;
-    props.dispatch(actionCreaterUpdMessageText(text))
+        let text = e.target.value;
+        props.dispatch(actionCreaterUpdMessageText(text))
+        
     };
     
     return (
@@ -34,7 +35,7 @@ const Dialogs = (props) => {
             <div className={stl.separator}></div>
             <div className={stl.messages}>
                 {messageElement}
-                <textarea value={props.state.messagesPage.newMessageText}
+                <textarea value={props.state.newMessageText}
                     onChange={ updatMessageText } className={stl.textarea} />
                 <div className={stl.button}>
                 <button onClick = {addMessage}>Send</button>

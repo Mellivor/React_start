@@ -10,19 +10,18 @@ import { Route } from 'react-router';
 
 
 const App = (props) => {
-
+   
   return (
     
     <div className = 'app_wrapper' >
-      <Header dialog={props.store._state.messagesPage.dialogs} />
+      <Header name={props.state.messagesPage.dialogs[0].name} />
       <div className='cont'>
         <Route path='/profile' render={() => <Cont
-          state={props.store.getState()}
-          // state={props.store._state.profilePage}
-          dispatch = {props.store.dispatch.bind(props.store)} />} />
+          state={props.state.profilePage}
+          dispatch = {props.dispatch} />} />
         <Route path='/dialogs' render={() => < Dialogs
-          state={props.store.getState()}
-          dispatch = {props.store.dispatch.bind(props.store)}/>} />
+          state={props.state.messagesPage}
+          dispatch = {props.dispatch}/>} />
       </div>
       <Nav />
     </div>

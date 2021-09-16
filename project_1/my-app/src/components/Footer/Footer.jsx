@@ -1,15 +1,15 @@
-import stl from './Nav.module.css';
+import stl from './Footer.module.css';
 import { NavLink } from 'react-router-dom';
 
-const Nav = () => {
+const Footer = () => {
   return (
 <footer className ={stl.footer}>
         prof
       <NavLink to="#">blablabla</NavLink>
         mess
-      
+
 </footer>
 );
 }
 
-export default Nav;
+export default Footer;

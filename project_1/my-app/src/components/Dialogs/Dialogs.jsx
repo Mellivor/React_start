@@ -1,44 +1,38 @@
 import Dialogitem from './Dialogitem/Dialogitem';
 import Message from './Message/Message';
 import stl from './Dialogs.module.css';
-import React from 'react';
-import { actionCreateraddMessage, actionCreaterUpdMessageText } from '../../redux/messagesPage_reducer';
-
-
-
-  
 
 const Dialogs = (props) => {
-    let messageElement = props.state.messages.map (m => <Message message={m.messages} who ={m.who} />)
-    let dialogsElement = props.state.dialogs.map(d => <Dialogitem name={d.name} id={d.id} />)
-    let friendElement = props.state.friends.map(f => <Dialogitem name={f.name} id={f.id} />)
-    
-    let addMessage = () => {
-    props.dispatch(actionCreateraddMessage())
+    let messageElement = props.state.messagesPage.messages.map (m => <Message message={m.messages} who ={m.who} />)
+    let dialogsElement = props.state.messagesPage.dialogs.map(d => <Dialogitem name={d.name} id={d.id} />)
+    let friendElement = props.state.messagesPage.friends.map(f => <Dialogitem name={f.name} id={f.id} />)
+
+    let messageAdd = () => {
+        props.addMessage();
     };
-    let updatMessageText = (e) => {
+    let texTupdatMessage = (e) => {
         let text = e.target.value;
-        props.dispatch(actionCreaterUpdMessageText(text))
-        
+        props.updatMessageText(text)
+
     };
-    
+
     return (
         <div className={stl.dialogs}>
             <div className={stl.items}>
                 <div className={stl.friends}>
                     <h2>Friends</h2>
-                    {friendElement} 
+                    {friendElement}
                 </div>
                 <h2>Dialogs</h2>
-                {dialogsElement}  
+                {dialogsElement}
             </div>
             <div className={stl.separator}></div>
             <div className={stl.messages}>
                 {messageElement}
-                <textarea value={props.state.newMessageText}
-                    onChange={ updatMessageText } className={stl.textarea} />
+                <textarea value={props.state.messagesPage.newMessageText}
+                    onChange={ texTupdatMessage } className={stl.textarea} />
                 <div className={stl.button}>
-                <button onClick = {addMessage}>Send</button>
+                <button onClick = {messageAdd}>Send</button>
                 </div>
             </div>
         </div>

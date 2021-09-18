@@ -25,19 +25,24 @@ let initialState = {
 };
 
 const messagesPage_reducer = (state = initialState, action) => {
-    switch (action.type){
-        case updMessageText :
-            state.newMessageText = action.text;
-            return state;
-        case addMessage :
-        let newMessage = { who: 'you', messages: state.newMessageText};
-        state.messages.push(newMessage);
-            state.newMessageText = '';
-            return state;
+    switch (action.type) {
+        case updMessageText: {
+            let stateCopy = { ...state };
+            stateCopy.newMessageText = action.text;
+            return stateCopy;
+        };
+        case addMessage: {
+            let stateCopy = { ...state };
+            stateCopy.messages = [...state.messages];
+            let newMessage = { who: 'you', messages: state.newMessageText };
+            stateCopy.messages.push(newMessage);
+            stateCopy.newMessageText = '';
+            return stateCopy;
+        };
         default:
             return state;
     }
-    
+
 };
 export const actionCreateraddMessage = () => ({ type: addMessage });
 export const actionCreaterUpdMessageText = (text) => ({ type: updMessageText, text: text });

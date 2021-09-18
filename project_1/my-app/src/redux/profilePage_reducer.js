@@ -7,24 +7,30 @@ let initialState = {
                 { id: 2, post: 'Second_post!!!', likes: 1 },
                 { id: 6, post: 'Third_post!!!', likes: -300 },
             ],
-            nevPostText: ''
+            newPostText: ''
 };
 
 const profilePage_reducer = (state = initialState, action) => {
     switch (action.type) {
-        case addPost:
-            let newPost = { id: 5, post: state.nevPostText, likes: 0 };
-            state.posts.push(newPost);
-            state.nevPostText = '';
-            return state;
-        case updPost:
-            state.nevPostText = action.text
-            return state;
+        case addPost: {
+            let newStateCopy = { ...state };
+            let newPost = { id: 5, post: state.newPostText, likes: 0 };
+            newStateCopy.posts = [...state.posts];
+            newStateCopy.posts.push(newPost);
+            newStateCopy.newPostText = '';
+            return newStateCopy;
+        };
+        case updPost:{
+            let newStateCopy = { ...state };
+            newStateCopy.newPostText = [...state.newPostText];
+            newStateCopy.newPostText = action.text
+            return newStateCopy;
+        };
         default:
             return state;
     }
-            
-            
+
+
 };
 export const actionCreaterAddPost = () => ({ type: addPost });
 export const actionCreaterUpdatePost = (text) => ({ type: updPost, text: text });

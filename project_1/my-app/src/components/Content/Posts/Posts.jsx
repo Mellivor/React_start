@@ -19,7 +19,7 @@ const Posts = (props) => {
   return (
     <div className={stl.posts_wrapper}>
       <h2 className={stl.posts_wrapper_myposts}>My posts</h2>
-      <textarea onChange={ onPostChange } className={stl.posts_wrapper_textarea} value={ props.posts.nevPostText }/>
+      <textarea onChange={ onPostChange } className={stl.posts_wrapper_textarea} value={ props.posts.newPostText }/>
       <div className={stl.posts_wrapper_button}>
         <button onClick={postsAdd} >Send</button>
       </div>

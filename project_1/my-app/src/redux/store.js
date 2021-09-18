@@ -29,17 +29,17 @@ let store = {
             ],
             newMessageText: '',
         },
-        
+
         profilePage: {
             posts: [
                 { id: 1, post: 'Atlas, I started a real job!!!', likes: 999 },
                 { id: 2, post: 'Second_post!!!', likes: 1 },
                 { id: 6, post: 'Third_post!!!', likes: -300 },
             ],
-            nevPostText: ''
+            newPostText: ''
         }
     },
-    
+
     dispatch(action) {
         this._state.profilePage = profilePage_reducer(this._state.profilePage, action);
         this._state.messagesPage = messagesPage_reducer(this._state.messagesPage, action);
@@ -48,7 +48,7 @@ let store = {
     getState() {
     return this._state;
     },
-    
+
     subscribe (observ) {
     this._callSubscriber = observ;
 },

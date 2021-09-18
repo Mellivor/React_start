@@ -8,8 +8,8 @@ const Cont = (props) => {
     <div className={stl.cont}>
       <Gearlogo/>
       <Profile />
-      <MyPostsContainer store={props.store} />
-      {/* <Posts state={props.state} newPostText={props.state.nevPostText} dispatch = {props.dispatch}/> */}
+      <MyPostsContainer />
+      {/* <Posts state={props.state} newPostText={props.state.newPostText} dispatch = {props.dispatch}/> */}
   </div>
 );
 }

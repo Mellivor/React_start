@@ -13,10 +13,8 @@ const App = (props) => {
     <div className = 'app_wrapper' >
       <Header />
       <div className='cont'>
-        <Route path='/profile' render={() => <Cont
-          store={props.store}
-          dispatch = {props.dispatch} />} />
-              <Route path='/dialogs' render={() => < DialogsContainer store={props.store} />}/>
+        <Route path='/profile' render={() => <Cont />} />
+        <Route path='/dialogs' render={() => < DialogsContainer />}/>
       </div>
       <Footer />
     </div>

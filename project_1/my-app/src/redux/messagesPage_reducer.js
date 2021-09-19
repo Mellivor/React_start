@@ -6,20 +6,20 @@ let initialState = {
         { id: 1, name: 'Dimon' },
         { id: 2, name: 'Vasa' },
         { id: 6, name: 'Sergey' },
-        { id: 9, name: 'Pedro' },
-        { id: 9, name: 'Pedro' },
+        { id: 7, name: 'Pedro' },
+        { id: 8, name: 'Pedro' },
         { id: 9, name: 'Yorik' },
-        { id: 2, name: 'janna' },
+        { id: 10, name: 'janna' },
     ],
     friends: [
         { id: 1, name: 'Dimon' },
         { id: 2, name: 'Vasa' },
     ],
     messages: [
-        { who: 'you', messages: 'Hello' },
-        { who: 'him', messages: 'Vatsapp' },
-        { who: 'you', messages: 'Reacr rules' },
-        { who: 'him', messages: 'Yohoho' },
+        { id:1, who: 'you', messages: 'Hello' },
+        { id:2, who: 'him', messages: 'Vatsapp' },
+        { id:5, who: 'you', messages: 'Reacr rules' },
+        { id:4, who: 'him', messages: 'Yohoho' },
     ],
     newMessageText: '',
 };
@@ -34,7 +34,7 @@ const messagesPage_reducer = (state = initialState, action) => {
         case addMessage:
             return{
                 ...state,
-                messages: [...state.messages, { who: 'you', messages: state.newMessageText }],
+                messages: [...state.messages, { id:7, who: 'you', messages: state.newMessageText }],
                 newMessageText: '',
             };
         default:

@@ -3,9 +3,9 @@ import Message from './Message/Message';
 import stl from './Dialogs.module.css';
 
 const Dialogs = (props) => {
-    let messageElement = props.state.messages.map (m => <Message message={m.messages} who ={m.who} />)
-    let dialogsElement = props.state.dialogs.map(d => <Dialogitem name={d.name} id={d.id} />)
-    let friendElement = props.state.friends.map(f => <Dialogitem name={f.name} id={f.id} />)
+    let messageElement = props.state.messages.map (m => <Message message={m.messages} key = {m.id} who ={m.who} />)
+    let dialogsElement = props.state.dialogs.map(d => <Dialogitem name={d.name} key = {d.id} id={d.id} />)
+    let friendElement = props.state.friends.map(f => <Dialogitem name={f.name}  key = {f.id} id={f.id} />)
 
     let messageAdd = () => {
         props.addMessage();

@@ -11,6 +11,7 @@ const Header = (props) => {
         <NavLink className={stl.linnks} activeClassName={stl.active} to="/profile"><div >Profile.</div></NavLink>
         <NavLink className={stl.linnks} activeClassName={stl.active} to="/news"><div >News.</div></NavLink>
         <NavLink className={stl.linnks} activeClassName={stl.active} to="/music"><div >Music.</div></NavLink>
+        <NavLink className={stl.linnks} activeClassName={stl.active} to="/users"><div >Users.</div></NavLink>
       </nav>
 
     </header>

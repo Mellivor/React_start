@@ -4,18 +4,16 @@ import stl from './Posts.module.css';
 
 const Posts = (props) => {
 
-
-  let postElem = props.posts.posts.map(m => <Newpost message={m.post} likes={m.likes} />)
+    let postElem = props.posts.posts.map(m => <Newpost message={m.post} key={m.id} likes={m.likes} />)
   let postsAdd = () => {
       props.addPost();
   };
-
-
 
   let onPostChange = (e) => {
     let text = e.target.value;
     props.onPostChange(text);
   };
+
   return (
     <div className={stl.posts_wrapper}>
       <h2 className={stl.posts_wrapper_myposts}>My posts</h2>

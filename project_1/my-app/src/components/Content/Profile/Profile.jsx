@@ -3,7 +3,6 @@ import stl from './Profile.module.css';
 
 
 const Profile = (props) => {
-    console.log(props);
   return (
     <div className={stl.profile}>
       <Avatar/>

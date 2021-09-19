@@ -1,6 +1,5 @@
 import Profile from './Profile';
 
-
 const ProfileYou = (props) => {
     console.log(props);
   return (

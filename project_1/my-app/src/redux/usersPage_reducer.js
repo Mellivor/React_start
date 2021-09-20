@@ -13,6 +13,7 @@ let initialState = {
 };
 
 const usersPage_reducer = (state = initialState, action) => {
+    console.log(action);
     switch (action.type) {
         case Follow:
             return {
@@ -39,7 +40,8 @@ const usersPage_reducer = (state = initialState, action) => {
             }
         };
          case SetUsers:
-             return { ...state, usersList: [...state.usersList,...action.users]}
+            //  return { ...state, usersList: [...state.usersList,...action.users]}
+             return { ...state, usersList: [...action.users]}
 
         default:
             return state;

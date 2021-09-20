@@ -6,7 +6,7 @@ import usersPage_reducer from "./usersPage_reducer";
 let reducers = combineReducers({
     profilePage: profilePage_reducer,
     messagesPage: messagesPage_reducer,
-    usersList: usersPage_reducer,
+    usersList: usersPage_reducer
 });
 let store = createStore(reducers);
 

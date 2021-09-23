@@ -2,7 +2,7 @@ import UserItem from './UserItem';
 import * as axios from 'axios'
 
 
-const Users = (props) => {
+const Userssssss = (props) => {
     // let users = [
     //     { id: 1, name: 'Mila', followed: true, birdthDate: '22.05.2019', sity: 'Kamenets-Podolsky', education: 'Genius from birth', webSite: 'www.google.com' },
     //     { id: 5, name: 'Vasa', followed: false, birdthDate: '14.05.1999', sity: 'Lviv', education: 'none', webSite: 'www.???.?' },
@@ -32,4 +32,4 @@ console.log(props)
     );
 };
 
-export default Users;
+export default Userssssss;

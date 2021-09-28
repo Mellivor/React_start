@@ -27,24 +27,24 @@ const usersPage_reducer = (state = initialState, action) => {
                 })
             }
 
-        case Unfollow: {
-            return {
-                ...state,
-                usersList: state.usersList.map(u => {
-                    if (u.id === action.userId) {
-                        return { ...u, followed: false }
-                    }
-                    return u;
+            case Unfollow:
+                return {
+                    ...state,
+                    usersList: state.usersList.map(u => {
+                        if (u.id === action.userId) {
+                            return { ...u, followed: false }
+                        }
+                        return u;
 
-                })
-            }
-        };
-         case SetUsers:
-            //  return { ...state, usersList: [...state.usersList,...action.users]}
-             return { ...state, usersList: [...action.users]}
+                    })
+                }
 
-        default:
-            return state;
+            case SetUsers:
+                // return { ...state, usersList: [...state.usersList,...action.users]}
+                return { ...state, usersList: [...action.users]}
+
+                default:
+                    return state;
     }
 
 };

@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        folow: (userId) => {
+        follow: (userId) => {
                 dispatch(FollowAc(userId));
         },
 

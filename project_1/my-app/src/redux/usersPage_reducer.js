@@ -1,15 +1,15 @@
 const Follow = 'FOLLOW';
 const Unfollow = 'UNFOLLOW';
 const SetUsers = 'SET_USERS';
+const SetCurrentPage = 'SET_CURRENT_PAGE';
+const setTotalUsersCount = 'SET_USERS_COUNT';
 
 let initialState = {
-    usersList: [
-        // { id:1, name:'Mila', followed: true, birdthDate: '22.05.2019', sity: 'Kamenets-Podolsky', education: 'Genius from birth', webSite:'www.google.com'},
-        // { id:5, name:'Vasa', followed: false, birdthDate: '14.05.1999', sity: 'Lviv', education: 'none', webSite:'www.???.?'},
-        // { id:2, name:'Peta', followed: false, birdthDate: '25.07.2000', sity: 'Yasina', education: 'none', webSite:'www.???.?'},
-        // { id:3, name:'Lina', followed: true, birdthDate: '01.01.1000', sity: 'Balmorra', education: 'none', webSite:'www.???.?'},
-        // { id:4, name:'Goga', followed: false, birdthDate: '07.07.0777', sity: 'Seyda Neen', education: 'none', webSite:'www.???.?'},
-    ]
+    usersList: [],
+    pageSize: 5,
+    totalUsers: 0,
+    currentPage: 2
+
 };
 
 const usersPage_reducer = (state = initialState, action) => {
@@ -40,8 +40,14 @@ const usersPage_reducer = (state = initialState, action) => {
                 }
 
             case SetUsers:
-                // return { ...state, usersList: [...state.usersList,...action.users]}
-                return { ...state, usersList: [...action.users]}
+            return { ...state, usersList: action.users }
+
+            case SetCurrentPage:
+            return { ...state, currentPage: action.currentPage }
+
+            case setTotalUsersCount:
+            console.log(action.totalUsers)
+                return { ...state, totalUsers: action.totalUsers}
 
                 default:
                     return state;
@@ -51,4 +57,6 @@ const usersPage_reducer = (state = initialState, action) => {
 export const FollowAc = (userId) => ({ type: Follow, userId });
 export const UnfollowAc = (userId) => ({ type: Unfollow, userId });
 export const SetUsersAc = (users) => ({ type: SetUsers, users});
+export const CurrentPageAc = (currentPage) => ({ type: SetCurrentPage, currentPage});
+export const totalUsersCountAc = (totalUsers) => ({ type: setTotalUsersCount, totalUsers});
 export default usersPage_reducer;

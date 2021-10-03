@@ -23,7 +23,7 @@ const Userssssss = (props) => {
      };
 
 
-    let usersItem = props.usersList.map( u => <UserItem folow = {props.folow}  unFolov  = {props.unFolov} id={u.id} followed= {u.followed} key={u.id} name = {u.name} birdthDate = {u.birdthDate} sity = {u.sity} education = {u.education} webSite = {u.webSite}/>);
+    let usersItem = props.usersList.map( u => <UserItem folow = {props.folow}  unFollow  = {props.unFollow} id={u.id} followed= {u.followed} key={u.id} name = {u.name} birdthDate = {u.birdthDate} sity = {u.sity} education = {u.education} webSite = {u.webSite}/>);
 console.log(props)
     return (
         <div> {usersItem}

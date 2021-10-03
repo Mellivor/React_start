@@ -1,7 +1,6 @@
-import UserItem from './UserItem';
 import * as axios from 'axios'
 import React from 'react';
-import stl from './UserC.module.css';
+import Users from './Users';
 
 class UsersC extends React.Component {
 
@@ -31,24 +30,19 @@ class UsersC extends React.Component {
     }
 
     render() {
-        let pagesCount = Math.ceil(this.props.totalUsers / this.props.pageSize)
 
-        let pages = []
-
-        for (let i = 1; i <= pagesCount; i++){
-            pages.push(i)
-        }
-
-            return(
-                <div>
-                    {this.props.usersList.map(u => <UserItem folow={this.props.follow} unFolov={this.props.unFolov} id={u.id} followed={u.followed} key={u.id} name={u.name} birdthDate={u.birdthDate} sity={u.sity} education={u.education} webSite={u.webSite} />)}
-                    {pages.map(p => {
-                        return <span key = {p} className={this.props.currentPage === p && stl.selectedPage}
-                            onClick={() => this.onPageChanged(p) }>{p}, </span>
-
-                    })}
-        </div>
-    );
+        return (
+            <Users totalUsers={this.props.totalUsers}
+                usersList={this.props.usersList}
+                follow={this.props.follow}
+                unFollow={this.props.unFollow}
+                currentPage={this.props.currentPage}
+                onPageChanged={this.onPageChanged}
+                pageSize={this.props.pageSize}
+                nextPagesList={this.props.nextPagesList}
+                previousPagesList={this.props.previousPagesList}
+                pageList = {this.props.pageList}
+            />)
 }
 }
 

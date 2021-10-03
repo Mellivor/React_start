@@ -51,7 +51,7 @@ const usersPage_reducer = (state = initialState, action) => {
             return { ...state, totalUsers: action.totalUsers }
 
         case SetNextPagesList:
-            if (state.pageList <= state.totalUsers / state.pageSize) {
+            if (state.pageList*10 < Math.ceil(state.totalUsers / state.pageSize)) {
                 return { ...state, pageList: state.pageList + 1 }
             } else return state;
 

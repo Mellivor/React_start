@@ -19,9 +19,13 @@ let Users = (props) =>{
     return (
         <div>
             {userItems}
-            {props.pageList > 1 ?<button onClick={ props.previousPagesList } >Next 20 lists</button>:undefined}
+
             {pageList}
-            <button onClick={ props.nextPagesList } >Next 20 lists</button>
+            <div>
+                {props.pageList > 1 ? <button onClick={props.previousPagesList} >Previous 20 lists</button> : undefined}
+                <button onClick={ props.nextPagesList } >Next 20 lists</button>
+            </div>
+
         </div >
     );
 

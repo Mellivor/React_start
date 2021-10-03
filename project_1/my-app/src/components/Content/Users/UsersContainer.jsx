@@ -8,7 +8,8 @@ const mapStateToProps = (state) => {
         pageSize: state.usersList.pageSize,
         totalUsers: state.usersList.totalUsers,
         currentPage: state.usersList.currentPage,
-        pageList: state.usersList.pageList
+        pageList: state.usersList.pageList,
+        loaded: state.usersList.loaded
     }
 };
 // let users = {};

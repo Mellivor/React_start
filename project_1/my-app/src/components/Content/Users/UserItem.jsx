@@ -2,11 +2,10 @@ import Avatar from "../Profile/Avatar/Avatar";
 import stl from './UserItem.module.css';
 
 const UserItem = (props) => {
-    // console.log(props)
   return (
     <div className={stl.profile}>
         <div className = {stl.avaButton}>
-            <Avatar />
+              <Avatar src={props.src}/>
             <div className = {stl.button}>
                   {props.followed ?
                       <button onClick={() => { props.unFollow(props.id) }} >Unfollow</button>:

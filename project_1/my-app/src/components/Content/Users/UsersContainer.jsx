@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { CurrentPageAc, FollowAc, SetNextPagesAc, SetPreviousPagesAc, SetUsersAc, totalUsersCountAc, UnfollowAc } from "../../../redux/usersPage_reducer";
+import { CurrentPageAc, FollowAc, SetNextPagesAc, SetPreviousPagesAc, SetUsersAc, stateIsLoadedAc, stateIsLoadingAc, totalUsersCountAc, UnfollowAc } from "../../../redux/usersPage_reducer";
 import UsersC from "./UsersС";
 
 const mapStateToProps = (state) => {
@@ -12,7 +12,6 @@ const mapStateToProps = (state) => {
         loaded: state.usersList.loaded
     }
 };
-// let users = {};
 
 
 const mapDispatchToProps = (dispatch) => {
@@ -43,7 +42,15 @@ const mapDispatchToProps = (dispatch) => {
 
         previousPagesList: () => {
                 dispatch(SetPreviousPagesAc());
-        }
+        },
+
+        setloading: () => {
+                dispatch(stateIsLoadingAc());
+        },
+
+        setloaded: () => {
+                dispatch(stateIsLoadedAc());
+        },
 
     }
 };

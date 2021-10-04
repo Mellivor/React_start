@@ -11,7 +11,7 @@ const stateIsLoaded = 'IS_LOADED';
 
 let initialState = {
     usersList: [],
-    pageSize: 5,
+    pageSize: 4,
     totalUsers: 0,
     currentPage: 1,
     pageList: 1,
@@ -65,11 +65,11 @@ const usersPage_reducer = (state = initialState, action) => {
                 return { ...state, pageList: state.pageList - 1 }
             } else return state;
 
-        case stateIsLoading:
-            return { ...state, loaded: true }
+        case stateIsLoaded:
+            return { ...state, loaded: false }
 
         case stateIsLoading:
-            return { ...state, loaded: false }
+            return { ...state, loaded: true }
 
         default:
             return state;

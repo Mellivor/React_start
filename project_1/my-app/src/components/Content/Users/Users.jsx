@@ -1,3 +1,4 @@
+import Preloader from '../Comon/Preloader/preloader';
 import UserItem from './UserItem';
 import stl from './Users.module.css';
 
@@ -32,13 +33,14 @@ let Users = (props) => {
     return (
 
 
-                props.loaded ? <div className={stl.loadBlock} > <img src='Gear-1.1s-230px.svg' alt='Loading' /></div > :
+                // props.loaded ? <div className={stl.loadBlock} > <img src='Gear-1.1s-230px.svg' alt='Loading' /></div > :
+                props.loaded ? <Preloader/> :
             (<div>
                 {userItems}
                 {pageList}
                 <div>
-                    {props.pageList > 1 ? <button onClick={props.previousPagesList} >Previous 20 lists</button> : undefined}
-                    <button onClick={props.nextPagesList} >Next 20 lists</button>
+                    {props.pageList > 1 ? <button onClick={props.previousPagesList} >Previous 10 lists</button> : undefined}
+                    <button onClick={props.nextPagesList} >Next 10 lists</button>
                 </div>
             </div >)
 

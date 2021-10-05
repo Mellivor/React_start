@@ -14,8 +14,8 @@ class UsersC extends React.Component {
                 .then(response => {
                     this.props.setUsers(response.data.items);
                     this.props.setTotalUsersCount(response.data.totalCount);
-                    this.props.setloaded()
                     console.log(response.data.items.photos)
+                    this.props.setloaded()
                     // console.log(response.data.items.photos.large)
                 });
         }
@@ -24,8 +24,8 @@ class UsersC extends React.Component {
 
 
     onPageChanged = (p) => {
-        this.props.setCurrentPage(p)
         this.props.setloading()
+        this.props.setCurrentPage(p)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.pageSize}`)
             .then(response => {
                 this.props.setUsers(response.data.items);

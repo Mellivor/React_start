@@ -7,7 +7,7 @@ const UserItem = (props) => {
   return (
     <div className={stl.profile}>
         <div className = {stl.avaButton}>
-              <NavLink to="/profile" >
+              <NavLink to={`/profile/${props.id}`} >
                     <Avatar src={props.src} />
               </NavLink>
             <div className = {stl.button}>

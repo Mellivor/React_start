@@ -1,11 +1,15 @@
 import Avatar from "../Profile/Avatar/Avatar";
 import stl from './UserItem.module.css';
+import { NavLink } from 'react-router-dom';
+
 
 const UserItem = (props) => {
   return (
     <div className={stl.profile}>
         <div className = {stl.avaButton}>
-              <Avatar src={props.src}/>
+              <NavLink to="/profile" >
+                    <Avatar src={props.src} />
+              </NavLink>
             <div className = {stl.button}>
                   {props.followed ?
                       <button onClick={() => { props.unFollow(props.id) }} >Unfollow</button>:

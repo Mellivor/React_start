@@ -1,8 +1,8 @@
-const follow = 'FOLLOW';
+const follows = 'FOLLOW';
 const unfollow = 'UNFOLLOW';
-const setUsers = 'SET_USERS';
-const setCurrentPage = 'SET_CURRENT_PAGE';
-const setTotalUsersCount = 'SET_USERS_COUNT';
+const setUserst = 'SET_USERS';
+const setCurrentPaget = 'SET_CURRENT_PAGE';
+const setTotalUsersCountt = 'SET_USERS_COUNT';
 const setNextPagesList = 'SET_NEXT_PAGEST_LISTS';
 const setPreviousPagesList = 'SET_PAGEST_LISTS';
 const stateIsLoading = 'IS_LOADING';
@@ -22,7 +22,7 @@ let initialState = {
 
 const usersPage_reducer = (state = initialState, action) => {
     switch (action.type) {
-        case follow:
+        case follows:
             return {
                 ...state,
                 usersList: state.usersList.map(u => {
@@ -46,13 +46,13 @@ const usersPage_reducer = (state = initialState, action) => {
                 })
             }
 
-        case setUsers:
+        case setUserst:
             return { ...state, usersList: action.users }
 
-        case setCurrentPage:
+        case setCurrentPaget:
             return { ...state, currentPage: action.currentPage }
 
-        case setTotalUsersCount:
+        case setTotalUsersCountt:
             return { ...state, totalUsers: action.totalUsers }
 
         case setNextPagesList:
@@ -76,13 +76,13 @@ const usersPage_reducer = (state = initialState, action) => {
     }
 
 };
-export const FollowAc = (userId) => ({ type: follow, userId });
-export const UnfollowAc = (userId) => ({ type: unfollow, userId });
-export const SetUsersAc = (users) => ({ type: setUsers, users});
-export const CurrentPageAc = (currentPage) => ({ type: setCurrentPage, currentPage});
-export const totalUsersCountAc = (totalUsers) => ({ type: setTotalUsersCount, totalUsers});
-export const SetNextPagesAc = () => ({ type: setNextPagesList});
-export const SetPreviousPagesAc = () => ({ type: setPreviousPagesList});
-export const stateIsLoadingAc = () => ({ type: stateIsLoading});
-export const stateIsLoadedAc = () => ({ type: stateIsLoaded});
+export const follow = (userId) => ({ type: follows, userId });
+export const unFollow = (userId) => ({ type: unfollow, userId });
+export const setUsers = (users) => ({ type: setUserst, users});
+export const setCurrentPage = (currentPage) => ({ type: setCurrentPaget, currentPage});
+export const setTotalUsersCount = (totalUsers) => ({ type: setTotalUsersCountt, totalUsers});
+export const nextPagesList = () => ({ type: setNextPagesList});
+export const previousPagesList = () => ({ type: setPreviousPagesList});
+export const setloading = () => ({ type: stateIsLoading});
+export const setloaded = () => ({ type: stateIsLoaded});
 export default usersPage_reducer;

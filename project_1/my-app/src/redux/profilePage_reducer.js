@@ -1,5 +1,6 @@
 const addPost = 'ADD_POST';
 const updPost = 'UPDATE_TEXT';
+const setProfile = 'SET_PROFILE';
 
 let initialState = {
     posts: [
@@ -8,8 +9,8 @@ let initialState = {
                 { id: 6, post: 'Third_post!!!', likes: -300 },
             ],
     newPostText: '',
-    userok: { id:1, name:'Mila', birdthDate: '22.05.2019', sity: 'Kamenets-Podolsky', education: 'Genius from birth', webSite:'www.google.com'}
-
+    // userok: { id:1, name:'Mila', birdthDate: '22.05.2019', sity: 'Kamenets-Podolsky', education: 'Genius from birth', webSite:'www.google.com'}
+    userok: null
 };
 
 const profilePage_reducer = (state = initialState, action) => {
@@ -25,6 +26,13 @@ const profilePage_reducer = (state = initialState, action) => {
             ...state,
             newPostText: action.text,
         };
+        case setProfile:
+            console.log(action.profile)
+            return {
+                ...state, userok: action.profile
+                // ...state,userok: { id:1, name:action.profile.fullName, birdthDate: '22.05.2019', sity: 'Kamenets-Podolsky', education: 'Genius from birth', webSite:'www.google.com'}
+                // ...state, ...userok, name: action.profile.fullName
+        };
         default:
             return state;
     }
@@ -32,5 +40,6 @@ const profilePage_reducer = (state = initialState, action) => {
 
 };
 export const actionCreaterAddPost = () => ({ type: addPost });
+export const setUserProfile = (profile) => ({ type: setProfile, profile });
 export const actionCreaterUpdatePost = (text) => ({ type: updPost, text: text });
 export default profilePage_reducer;

@@ -7,7 +7,7 @@ const Cont = (props) => {
   return (
     <div className={stl.cont}>
       <Gearlogo/>
-      <ProfileContainer />
+      <ProfileContainer/>
       <MyPostsContainer />
   </div>
 );

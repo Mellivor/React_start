@@ -5,15 +5,17 @@ import stl from './Profile.module.css';
 const Profile = (props) => {
   return (
     <div className={stl.profile}>
-      <Avatar/>
+      <Avatar src={props.src} />
       <div className={stl.text}>
         <h2 className={stl.name}>
           {props.name}
         </h2>
-            <div>Data of birdth:  {props.birdthDate }</div>
-            <div>Cyty:  { props.sity }</div>
-            <div>Education:   { props.education}</div>
-            <div>Web site: {props.webSite }</div>
+            {!props.aboutMe ?undefined:<div>About me:   {props.aboutMe}</div>}
+            {!props.contacts.facebook ?undefined:<div>facebook:   {props.contacts.facebook}</div>}
+            {!props.contacts.website ?undefined:<div>website:   {props.contacts.website}</div>}
+            {!props.contacts.vk ?undefined:<div>vk:   {props.contacts.vk}</div>}
+            {!props.contacts.twitter ?undefined:<div>twitter:   {props.contacts.twitter}</div>}
+            {!props.contacts.instagram ?undefined:<div>instagram:   {props.contacts.instagram}</div>}
       </div>
     </div>
 );

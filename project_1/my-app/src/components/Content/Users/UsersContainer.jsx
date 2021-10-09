@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { CurrentPageAc, FollowAc, SetNextPagesAc, SetPreviousPagesAc, SetUsersAc, stateIsLoadedAc, stateIsLoadingAc, totalUsersCountAc, UnfollowAc } from "../../../redux/usersPage_reducer";
+import { follow, unFollow, setUsers, setCurrentPage, setTotalUsersCount, nextPagesList,previousPagesList, setloading, setloaded,} from "../../../redux/usersPage_reducer";
 import UsersC from "./UsersС";
 
 const mapStateToProps = (state) => {
@@ -14,47 +14,51 @@ const mapStateToProps = (state) => {
 };
 
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userId) => {
-                dispatch(FollowAc(userId));
-        },
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         follow: (userId) => {
+//                 dispatch(follow(userId));
+//         },
 
-        unFollow: (userId) => {
-                dispatch(UnfollowAc(userId));
-        },
+//         unFollow: (userId) => {
+//                 dispatch(unFollow(userId));
+//         },
 
-        setUsers: (users) => {
-                dispatch(SetUsersAc(users));
-        },
+//         setUsers: (users) => {
+//                 dispatch(setUsers(users));
+//         },
 
-        setCurrentPage: (currentPage) => {
-                dispatch(CurrentPageAc(currentPage));
-        },
+//         setCurrentPage: (currentPage) => {
+//                 dispatch(setCurrentPage(currentPage));
+//         },
 
-        setTotalUsersCount: (totalUsers) => {
-                dispatch(totalUsersCountAc(totalUsers));
-        },
+//         setTotalUsersCount: (totalUsers) => {
+//                 dispatch(setTotalUsersCount(totalUsers));
+//         },
 
-        nextPagesList: () => {
-                dispatch(SetNextPagesAc());
-        },
+//         nextPagesList: () => {
+//                 dispatch(nextPagesList());
+//         },
 
-        previousPagesList: () => {
-                dispatch(SetPreviousPagesAc());
-        },
+//         previousPagesList: () => {
+//                 dispatch(previousPagesList());
+//         },
 
-        setloading: () => {
-                dispatch(stateIsLoadingAc());
-        },
+//         setloading: () => {
+//                 dispatch(setloading());
+//         },
 
-        setloaded: () => {
-                dispatch(stateIsLoadedAc());
-        },
+//         setloaded: () => {
+//                 dispatch(setloaded());
+//         },
 
-    }
-};
+//     }
+// };
 
-const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersC);
+
+const UsersContainer = connect(mapStateToProps, {
+    follow, unFollow, setUsers, setCurrentPage,setTotalUsersCount, nextPagesList,
+    previousPagesList, setloading, setloaded,
+})(UsersC);
 
 export default UsersContainer;

@@ -4,29 +4,22 @@ import Users from './Users';
 
 class UsersC extends React.Component {
 
-    // constructor(props) {
-        //     super(props);
-        // }
     componentDidMount() {
         this.props.setloading()
 
-            axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+            axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, { withCredentials: true})
                 .then(response => {
                     this.props.setUsers(response.data.items);
                     this.props.setTotalUsersCount(response.data.totalCount);
                     console.log(response.data.items.photos)
                     this.props.setloaded()
-                    // console.log(response.data.items.photos.large)
                 });
         }
-
-
-
 
     onPageChanged = (p) => {
         this.props.setloading()
         this.props.setCurrentPage(p)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.pageSize}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.pageSize}`, { withCredentials: true})
             .then(response => {
                 this.props.setUsers(response.data.items);
                 this.props.setTotalUsersCount(response.data.totalCount);
@@ -34,14 +27,13 @@ class UsersC extends React.Component {
 
             })
     }
-
     render() {
-
         return (
             <Users
                 loaded = {this.props.loaded}
                 totalUsers={this.props.totalUsers}
                 usersList={this.props.usersList}
+                // follow={this.followApi.bind(UsersC)}
                 follow={this.props.follow}
                 unFollow={this.props.unFollow}
                 currentPage={this.props.currentPage}

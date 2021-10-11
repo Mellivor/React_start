@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import ProfileContainerClass from "./ProfileContainerClass";
 import { setUserProfile } from "../../../redux/profilePage_reducer";
+import WithRouterComponent from "./ProfileContainerClass";
 
 const mapStateToUserProps = (state) => {
     return {
@@ -8,6 +8,6 @@ const mapStateToUserProps = (state) => {
     }
 };
 
-const ProfileContainer = connect(mapStateToUserProps, {setUserProfile})(ProfileContainerClass);
+const ProfileContainer = connect(mapStateToUserProps, {setUserProfile})(WithRouterComponent);
 
 export default ProfileContainer;

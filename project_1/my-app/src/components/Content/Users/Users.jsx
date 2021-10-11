@@ -17,10 +17,8 @@ let Users = (props) => {
         unFollow={props.unFollow}
         id={u.id}
         followed={u.followed}
-        key={u.id} name={u.name}
-        birdthDate={u.birdthDate}
-        sity={u.sity}
-        education={u.education}
+        key={u.id}
+        name={u.name}
         webSite={u.webSite}
         src = {u.photos.large} />);
 
@@ -33,7 +31,6 @@ let Users = (props) => {
     return (
 
 
-                // props.loaded ? <div className={stl.loadBlock} > <img src='Gear-1.1s-230px.svg' alt='Loading' /></div > :
                 props.loaded ? <Preloader/> :
             (<div>
                 {userItems}

@@ -17,10 +17,13 @@ class ProfileContainerClass extends React.Component {
                 });
     }
 
+
+
     render() {
         return <ProfileYou {...this.props}/>
     }
 }
+
 
 let WithRouterComponent = withRouter(ProfileContainerClass);
 

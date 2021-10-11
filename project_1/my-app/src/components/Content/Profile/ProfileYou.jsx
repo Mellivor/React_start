@@ -18,10 +18,3 @@ const ProfileYou = (props) => {
 }
 
 export default ProfileYou;
-// aboutMe: "я круто чувак 1001%"
-// contacts: {facebook: 'facebook.com', website: null, vk: 'vk.com/dimych', twitter: 'https://twitter.com/@sdf', instagram: 'instagra.com/sds', …}
-// fullName: "samurai dimych"
-// lookingForAJob: true
-// lookingForAJobDescription: "не ищу, а дурачусь"
-// photos: {small: 'https://social-network.samuraijs.com/activecontent/images/users/2/user-small.jpg?v=0', large: 'https://social-network.samuraijs.com/activecontent/images/users/2/user.jpg?v=0'}
-// userId: 2

@@ -9,7 +9,6 @@ let initialState = {
                 { id: 6, post: 'Third_post!!!', likes: -300 },
             ],
     newPostText: '',
-    // userok: { id:1, name:'Mila', birdthDate: '22.05.2019', sity: 'Kamenets-Podolsky', education: 'Genius from birth', webSite:'www.google.com'}
     userok: null
 };
 

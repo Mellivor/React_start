@@ -1,5 +1,5 @@
-import * as axios from 'axios'
 import React from 'react';
+import { userAPI } from '../../../API/API';
 import Users from './Users';
 
 class UsersC extends React.Component {
@@ -7,11 +7,10 @@ class UsersC extends React.Component {
     componentDidMount() {
         this.props.setloading()
 
-            axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, { withCredentials: true})
-                .then(response => {
-                    this.props.setUsers(response.data.items);
-                    this.props.setTotalUsersCount(response.data.totalCount);
-                    console.log(response.data.items.photos)
+                userAPI.getUsers(this.props.currentPage, this.props.pageSize).then(response => {
+                    this.props.setUsers(response.items);
+                    this.props.setTotalUsersCount(response.totalCount);
+                    console.log(response.items.photos)
                     this.props.setloaded()
                 });
         }
@@ -19,10 +18,9 @@ class UsersC extends React.Component {
     onPageChanged = (p) => {
         this.props.setloading()
         this.props.setCurrentPage(p)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.pageSize}`, { withCredentials: true})
-            .then(response => {
-                this.props.setUsers(response.data.items);
-                this.props.setTotalUsersCount(response.data.totalCount);
+            userAPI.getUsers(p, this.props.pageSize).then(response => {
+                this.props.setUsers(response.items);
+                this.props.setTotalUsersCount(response.totalCount);
                 this.props.setloaded()
 
             })

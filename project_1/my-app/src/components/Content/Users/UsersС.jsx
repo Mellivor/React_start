@@ -40,7 +40,9 @@ class UsersC extends React.Component {
                 nextPagesList={this.props.nextPagesList}
                 previousPagesList={this.props.previousPagesList}
                 pageList={this.props.pageList}
-
+                changingStatus={this.props.changingStatus}
+                loadedButtons={this.props.loadedButtons}
+                togleIsFolowingAC={this.props.togleIsFolowingAC}
             />)
 }
 }

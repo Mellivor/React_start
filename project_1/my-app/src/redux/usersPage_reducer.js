@@ -7,6 +7,8 @@ const setNextPagesList = 'SET_NEXT_PAGEST_LISTS';
 const setPreviousPagesList = 'SET_PAGEST_LISTS';
 const stateIsLoading = 'IS_LOADING';
 const stateIsLoaded = 'IS_LOADED';
+const updateStatus = 'UPDATE_STATUS';
+const togleIsFolowing = 'TOGLE_IS_FOLLOWING';
 
 
 let initialState = {
@@ -15,8 +17,9 @@ let initialState = {
     totalUsers: 0,
     currentPage: 1,
     pageList: 1,
-    loaded: false
-
+    loaded: false,
+    changingStatus: false,
+    loadedButtons: [],
 
 };
 
@@ -71,6 +74,17 @@ const usersPage_reducer = (state = initialState, action) => {
         case stateIsLoading:
             return { ...state, loaded: true }
 
+        case updateStatus:
+            return { ...state, changingStatus: action.loading }
+
+        case togleIsFolowing:
+            return {
+                ...state,
+                loadedButtons: action.loading ?
+                    [...state.loadedButtons, action.userId]:
+                    state.loadedButtons.filter(id => id !== action.userId)
+            }
+
         default:
             return state;
     }
@@ -85,4 +99,6 @@ export const nextPagesList = () => ({ type: setNextPagesList});
 export const previousPagesList = () => ({ type: setPreviousPagesList});
 export const setloading = () => ({ type: stateIsLoading});
 export const setloaded = () => ({ type: stateIsLoaded});
+export const updateStatusAC = (loading) => ({ type: updateStatus, loading});
+export const togleIsFolowingAC = (loading, userId) => ({ type: togleIsFolowing, userId, loading});
 export default usersPage_reducer;

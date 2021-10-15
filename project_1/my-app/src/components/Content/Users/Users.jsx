@@ -20,7 +20,11 @@ let Users = (props) => {
         key={u.id}
         name={u.name}
         webSite={u.webSite}
-        src = {u.photos.large} />);
+        src={u.photos.large}
+        changingStatus={props.changingStatus}
+        loadedButtons={props.loadedButtons}
+        togleIsFolowingAC={props.togleIsFolowingAC}
+    />);
 
     console.log(props.usersList)
 

@@ -14,30 +14,23 @@ const UserItem = (props) => {
               </NavLink>
             <div className = {stl.button}>
                   {props.followed ?
-                      <button onClick={() => {
-                        //   axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`,
-                        //       {
-                        //           withCredentials: true,
-                        //           headers: { 'API-KEY': '8475436c-fdbb-4932-80c1-47139984e4a1' }
-                        //       })
-                              userAPI.unfollow(props.id).then(response => {
-                                  if (response === 0) {
-                                      props.unFollow(props.id)
-                                    }
-                                })
+                      <button disabled = {props.loadedButtons.some(id => id === props.id)} onClick={() => {
+                            props.togleIsFolowingAC(true, props.id)
+                            userAPI.unfollow(props.id).then(response => {
+                                if (response === 0) {
+                                    props.unFollow(props.id)
+                                }
+                                props.togleIsFolowingAC(false, props.id)
+                            })
 
-                            }} >Unfollow</button> :
-                            <button onClick={() => {
-                                // axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`,{},
-                                //     {
-                                //         withCredentials: true,
-                                //         headers: {'API-KEY': '8475436c-fdbb-4932-80c1-47139984e4a1'}
-                                //     })
+                        }} >Unfollow</button> :
+                        <button disabled = {props.loadedButtons.some(id => id === props.id)} onClick={() => {
+                            props.togleIsFolowingAC(true, props.id)
                                 userAPI.follow(props.id).then(response => {
-                                    console.log(response.data)
                                     if (response === 0) {
                                         props.follow(props.id)
                                     }
+                                    props.togleIsFolowingAC(false, props.id)
                                 })
 
                       }} >Follow</button>}

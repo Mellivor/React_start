@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import {
     follow, unFollow, setUsers, setCurrentPage, setTotalUsersCount,
     nextPagesList, previousPagesList, setloading, setloaded,
-    updateStatusAC, togleIsFolowingAC,
+    updateStatusAC, togleIsFolowingAC, getUsers,
 } from "../../../redux/usersPage_reducer";
 import UsersC from "./UsersС";
 
@@ -22,7 +22,7 @@ const mapStateToProps = (state) => {
 
 const UsersContainer = connect(mapStateToProps, {
     follow, unFollow, setUsers, setCurrentPage,setTotalUsersCount, nextPagesList,
-    previousPagesList, setloading, setloaded,updateStatusAC, togleIsFolowingAC,
+    previousPagesList, setloading, setloaded, updateStatusAC, togleIsFolowingAC, getUsers
 })(UsersC);
 
 export default UsersContainer;

@@ -1,7 +1,6 @@
 import Avatar from "../Profile/Avatar/Avatar";
 import stl from './UserItem.module.css';
 import { NavLink } from 'react-router-dom';
-import { userAPI } from "../../../API/API";
 
 
 const UserItem = (props) => {
@@ -15,24 +14,10 @@ const UserItem = (props) => {
             <div className = {stl.button}>
                   {props.followed ?
                       <button disabled = {props.loadedButtons.some(id => id === props.id)} onClick={() => {
-                            props.togleIsFolowingAC(true, props.id)
-                            userAPI.unfollow(props.id).then(response => {
-                                if (response === 0) {
-                                    props.unFollow(props.id)
-                                }
-                                props.togleIsFolowingAC(false, props.id)
-                            })
-
+                        props.unFollow(props.id)
                         }} >Unfollow</button> :
                         <button disabled = {props.loadedButtons.some(id => id === props.id)} onClick={() => {
-                            props.togleIsFolowingAC(true, props.id)
-                                userAPI.follow(props.id).then(response => {
-                                    if (response === 0) {
-                                        props.follow(props.id)
-                                    }
-                                    props.togleIsFolowingAC(false, props.id)
-                                })
-
+                        props.follow(props.id)
                       }} >Follow</button>}
             </div>
         </div>
@@ -47,11 +32,3 @@ const UserItem = (props) => {
 }
 
 export default UserItem;
-
-// let followApi = (id) => {
-
-//     }
-// let unFollowApi = (id) =>{
-
-
-// }

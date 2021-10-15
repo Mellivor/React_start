@@ -26,7 +26,6 @@ let Users = (props) => {
         togleIsFolowingAC={props.togleIsFolowingAC}
     />);
 
-    console.log(props.usersList)
 
     let pageList = pages.slice(pagesPpackage - 10, pagesPpackage).map(p => <span key={p} className={props.currentPage === p ? stl.selectedPage : undefined}
         onClick={() => props.onPageChanged(p)}>{p} </span>);

@@ -1,3 +1,5 @@
+import { userAPI } from "../API/API";
+
 const follows = 'FOLLOW';
 const unfollow = 'UNFOLLOW';
 const setUserst = 'SET_USERS';
@@ -90,8 +92,8 @@ const usersPage_reducer = (state = initialState, action) => {
     }
 
 };
-export const follow = (userId) => ({ type: follows, userId });
-export const unFollow = (userId) => ({ type: unfollow, userId });
+export const followSucces = (userId) => ({ type: follows, userId });
+export const unFollowSucces = (userId) => ({ type: unfollow, userId });
 export const setUsers = (users) => ({ type: setUserst, users});
 export const setCurrentPage = (currentPage) => ({ type: setCurrentPaget, currentPage});
 export const setTotalUsersCount = (totalUsers) => ({ type: setTotalUsersCountt, totalUsers});
@@ -101,4 +103,41 @@ export const setloading = () => ({ type: stateIsLoading});
 export const setloaded = () => ({ type: stateIsLoaded});
 export const updateStatusAC = (loading) => ({ type: updateStatus, loading});
 export const togleIsFolowingAC = (loading, userId) => ({ type: togleIsFolowing, userId, loading});
+
+export const getUsers = (currentPage, pageSize) => {
+    return (dispatch) => {
+        dispatch(setloading());
+        userAPI.getUsers(currentPage, pageSize).then(response => {
+            dispatch(setUsers(response.items));
+            dispatch(setTotalUsersCount(response.totalCount));
+            dispatch(setloaded())
+        });
+    }
+};
+
+export const unFollow = (userId) => {
+    return (dispatch) => {
+        dispatch(togleIsFolowingAC(true, userId));
+        userAPI.unfollow(userId).then(response => {
+            if (response === 0) {
+                dispatch(unFollowSucces(userId));
+            }
+            dispatch(togleIsFolowingAC(false, userId));
+        })
+    }
+};
+
+export const follow = (userId) => {
+    return (dispatch) => {
+        dispatch(togleIsFolowingAC(true, userId))
+            userAPI.follow(userId).then(response => {
+                if (response === 0) {
+                    dispatch(followSucces(userId))
+                }
+                dispatch(togleIsFolowingAC(false, userId))
+            })
+    }
+};
+
+
 export default usersPage_reducer;

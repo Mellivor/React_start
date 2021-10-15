@@ -1,3 +1,5 @@
+import { userAPI } from "../API/API";
+
 const stateIsLoading = 'IS_LOADING';
 const stateIsLoaded = 'IS_LOADED';
 const setYourProfile = 'SET_YOUR_PROFILE';
@@ -37,5 +39,27 @@ const author_reducer = (state = initialState, action) => {
 export const setloading = () => ({ type: stateIsLoading});
 export const setloaded = () => ({ type: stateIsLoaded });
 export const setUserProfile = (profile) => ({ type: setYourProfile, profile });
-export const authorizedProfile = (id, login, email) => ({ type: setAuthorizedProfile, data: { id, login, email }});
+export const authorizedProfile = (id, login, email) => ({ type: setAuthorizedProfile, data: { id, login, email } });
+
+export const login = (dispatch) => {
+    userAPI.login()
+        .then(response => {
+            if (response.data.resultCode === 0) {
+                let { id, login, email } = response.data.data;
+                dispatch(authorizedProfile(id, login, email));
+            }
+        });
+}
+
+// export const login = () => {return (dispatch) => {
+//     userAPI.login()
+//         .then(response => {
+//             if (response.data.resultCode === 0) {
+//                 let { id, login, email } = response.data.data;
+//                 dispatch(authorizedProfile(id, login, email));
+//             }
+//         });
+// }
+// }
+
 export default author_reducer;

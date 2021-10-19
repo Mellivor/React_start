@@ -28,11 +28,27 @@ export const userAPI = {
             })
     },
 
+    // loginAPI( dispatch, authorizedProfile) {
+    // return instans.get('auth/me',)
+    //     .then(response => {
+    //         if (response.data.resultCode === 0) {
+    //             let { id, login, email } = response.data.data;
+    //             return(dispatch(authorizedProfile(id, login, email)));
+    //         }
+    //     });
+// }
     login() {
     return instans.get('auth/me',)
         .then(response => {
                 return response
         });
+},
+profilInfo(userId) {
+    return instans.get(`profile/${userId}`)
+    .then(response => {
+                return response.data;
+            })
 }
+
 
 }

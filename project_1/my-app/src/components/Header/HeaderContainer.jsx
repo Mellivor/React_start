@@ -2,7 +2,6 @@ import React from "react";
 import Header from "./Header";
 import { setloading, authorizedProfile, setUserProfile, logined } from "../../redux/athor_reducer";
 import { connect } from "react-redux";
-import { userAPI } from "../../API/API";
 
 
 

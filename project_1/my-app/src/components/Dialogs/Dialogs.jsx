@@ -8,11 +8,11 @@ const Dialogs = (props) => {
     let friendElement = props.state.friends.map(f => <Dialogitem name={f.name}  key = {f.id} id={f.id} />)
 
     let messageAdd = () => {
-        props.addMessage();
+        props.actionCreateraddMessage();
     };
     let texTupdatMessage = (e) => {
         let text = e.target.value;
-        props.updatMessageText(text);
+        props.actionCreaterUpdMessageText(text);
     };
 
     return (

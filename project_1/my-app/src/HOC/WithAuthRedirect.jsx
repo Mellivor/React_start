@@ -1,6 +1,13 @@
 import React from 'react';
-import { Redirect } from 'react-router';
+import { connect } from 'react-redux';
+import { Redirect, __RouterContext } from 'react-router';
 
+const mapStateToProps = (state) => {
+    return {
+
+        authorized:state.auth.authorized,
+    }
+};
 export const widthAuthRedirect = (Component) => {
     class RedirectComponent extends React.Component {
 
@@ -10,5 +17,6 @@ export const widthAuthRedirect = (Component) => {
             return < Component {...this.props} />
         }
     }
-    return RedirectComponent;
+    let RedirectComponentConected =connect(mapStateToProps)(RedirectComponent)
+    return RedirectComponentConected;
 }

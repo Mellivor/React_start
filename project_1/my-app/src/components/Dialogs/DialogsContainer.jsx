@@ -3,6 +3,7 @@ import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
 import { widthAuthRedirect } from '../../HOC/WithAuthRedirect';
 import { __RouterContext } from 'react-router';
+import { compose } from 'redux';
 
 const mapStateToProps = (state) => {
     return {
@@ -10,7 +11,9 @@ const mapStateToProps = (state) => {
     }
 };
 
-let dialogsCntainerWithRouter = widthAuthRedirect(Dialogs);
-const DialogsContainer = connect(mapStateToProps, {actionCreateraddMessage, actionCreaterUpdMessageText})(dialogsCntainerWithRouter);
+const DialogsContainer = compose(
+    connect(mapStateToProps, { actionCreateraddMessage, actionCreaterUpdMessageText }),
+    widthAuthRedirect
+)(Dialogs);
 
 export default DialogsContainer;

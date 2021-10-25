@@ -1,8 +1,9 @@
 import React from "react";
 import ProfileYou from "./ProfileYou";
 import { withRouter } from "react-router";
-import { userAPI } from "../../../API/API";
-
+import { compose } from "redux";
+import { connect } from "react-redux";
+import { setUserProfile, profileRequest } from "../../../redux/profilePage_reducer";
 
 class ProfileContainerClass extends React.Component {
 
@@ -17,7 +18,28 @@ class ProfileContainerClass extends React.Component {
     }
 }
 
+// compose(
 
-let WithRouterComponent = withRouter(ProfileContainerClass);
+//     withRouter
+// )(ProfileContainerClass)
 
-export default WithRouterComponent;
+// let WithRouterComponent = withRouter(ProfileContainerClass);
+
+// export default compose(withRouter)(ProfileContainerClass);
+// export default WithRouterComponent;
+
+
+const mapStateToUserProps = (state) => {
+    return {
+        profilePage: state.profilePage.userok
+    }
+};
+
+const ProfileContainer = compose(
+    connect(mapStateToUserProps, { setUserProfile, profileRequest }),
+    withRouter
+)(ProfileContainerClass);
+
+    // connect(mapStateToUserProps, { setUserProfile, profileRequest })(WithRouterComponent);
+
+export default ProfileContainer;

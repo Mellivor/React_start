@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { compose } from "redux";
 import { widthAuthRedirect } from "../../../HOC/WithAuthRedirect";
 import {
     follow, unFollow, setUsers, setCurrentPage, setTotalUsersCount,
@@ -21,12 +22,12 @@ const mapStateToProps = (state) => {
     }
 };
 
-let UsersCntainerWithRouter = widthAuthRedirect(UsersC);
 
-
-const UsersContainer = connect(mapStateToProps, {
+const UsersContainer = compose(
+    connect(mapStateToProps, {
     follow, unFollow, setUsers, setCurrentPage,setTotalUsersCount, nextPagesList,
-    previousPagesList, setloading, setloaded, updateStatusAC, togleIsFolowingAC, getUsers
-})(UsersCntainerWithRouter);
+    previousPagesList, setloading, setloaded, updateStatusAC, togleIsFolowingAC, getUsers}),
+    widthAuthRedirect
+)(UsersC);
 
 export default UsersContainer;

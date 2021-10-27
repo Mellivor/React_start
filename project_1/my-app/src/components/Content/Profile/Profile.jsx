@@ -1,12 +1,14 @@
 import Avatar from './Avatar/Avatar';
 import stl from './Profile.module.css';
+import ProfileStatus from './ProfileStatus';
 
 
 const Profile = (props) => {
   return (
     <div className={stl.profile}>
       <Avatar src={props.src} />
-      <div className={stl.text}>
+          <div className={stl.text}>
+        <ProfileStatus status ='hello'/>
         <h2 className={stl.name}>
           {props.name}
         </h2>

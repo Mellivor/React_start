@@ -8,7 +8,7 @@ const Profile = (props) => {
     <div className={stl.profile}>
       <Avatar src={props.src} />
           <div className={stl.text}>
-        <ProfileStatus status ='hello'/>
+              <ProfileStatus status={props.status} setProfileStatus={ props.setProfileStatus }/>
         <h2 className={stl.name}>
           {props.name}
         </h2>

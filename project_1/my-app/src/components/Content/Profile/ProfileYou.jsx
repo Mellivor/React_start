@@ -2,10 +2,11 @@ import Preloader from '../Comon/Preloader/preloader';
 import Profile from './Profile';
 
 const ProfileYou = (props) => {
-
     return (
         !props.profilePage ? <Preloader /> : (
             <Profile
+                setProfileStatus = {props.setProfileStatus}
+                status = {props.status}
                 src={props.profilePage.photos.large}
                 id={props.profilePage.userId}
                 key={props.profilePage.userId}

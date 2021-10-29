@@ -27,28 +27,42 @@ export const userAPI = {
                 return response.data.resultCode;
             })
     },
-
-    // loginAPI( dispatch, authorizedProfile) {
-    // return instans.get('auth/me',)
-    //     .then(response => {
-    //         if (response.data.resultCode === 0) {
-    //             let { id, login, email } = response.data.data;
-    //             return(dispatch(authorizedProfile(id, login, email)));
-    //         }
-    //     });
-// }
     login() {
     return instans.get('auth/me',)
         .then(response => {
                 return response
         });
-},
-profilInfo(userId) {
-    return instans.get(`profile/${userId}`)
-    .then(response => {
-                return response.data;
-            })
+    }   ,
+    profilInfo(userId) {
+        console.warn('Obsolete method. Please profileAPI object.')
+    return profileAPI.profilInfo(userId)
+            }
 }
 
 
+
+
+export const profileAPI = {
+    profilInfo(userId) {
+        return instans.get(`profile/${userId}`)
+            .then(response => {
+                return response.data;
+            })
+    },
+
+    getStatus(userId) {
+        return instans.get(`profile/status/${userId}`)
+            .then(response => {
+                    return response.data;
+                })
+    },
+
+    updateStatus(status) {
+        return instans.put('profile/status/', {
+            status: status
+        })
+            .then(response => {
+                    return response
+            });
+    }
 }

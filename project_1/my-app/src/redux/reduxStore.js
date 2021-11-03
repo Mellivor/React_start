@@ -10,6 +10,7 @@ let reducers = combineReducers({
     messagesPage: messagesPage_reducer,
     usersList: usersPage_reducer,
     auth: author_reducer,
+
 });
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));
 

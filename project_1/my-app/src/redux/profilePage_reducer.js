@@ -13,7 +13,7 @@ let initialState = {
             ],
     newPostText: '',
     userok: null,
-    status:'Add your status'
+    status:'Add your status',
 };
 
 const profilePage_reducer = (state = initialState, action) => {
@@ -68,8 +68,8 @@ export const setProfileStatus = (status) => {
     return (dispatch) => {
         profileAPI.updateStatus(status)
             .then(response => {
-                if (response.resultCode === 0) {
-                dispatch(setStatusAC(response));
+                if (response.data.resultCode === 0) {
+                dispatch(setStatusAC(status));
             }
             });
     }

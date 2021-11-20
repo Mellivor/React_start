@@ -27,12 +27,27 @@ export const userAPI = {
                 return response.data.resultCode;
             })
     },
-    login() {
+
+    login(email, password, rememberMe) {
+        return instans.post('auth/login', {
+            email,
+            password,
+            rememberMe,
+            captcha: false,
+        })
+            .then(response => {
+                console.log(response)
+                return response
+        });
+    },
+
+    autologin() {
     return instans.get('auth/me',)
         .then(response => {
                 return response
         });
-    }   ,
+    },
+
     profilInfo(userId) {
         console.warn('Obsolete method. Please profileAPI object.')
     return profileAPI.profilInfo(userId)

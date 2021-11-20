@@ -3,14 +3,16 @@ import ReactDOM from "react-dom";
 import { useFormik } from "formik";
 // import stl from './Logform.module.css';
 
-const Logform = () => {
+
+const Logform = (props) => {
   const formik = useFormik({
       initialValues: {
             email: "",
             password: "",
       },
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+    //   alert(JSON.stringify(values, null, 2));
+        props.login(values.email, values.password, false);
     }
   });
   return (

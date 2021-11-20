@@ -44,11 +44,29 @@ export const authorizedProfile = (id, login, email) => ({ type: setAuthorizedPro
 
 export const logined = () => {
     return (dispatch) => {
-        userAPI.login()
+        userAPI.autologin()
             .then(response => {
                 if (response.data.resultCode === 0) {
                     let { id, login, email } = response.data.data;
                     dispatch(authorizedProfile(id, login, email));
+                }
+            });
+    }
+}
+
+export const loginFormik = (email, password, rememberMe) => {
+    console.log(email + password + rememberMe)
+    return (dispatch) => {
+        userAPI.login(email, password, rememberMe)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    userAPI.autologin()
+                        .then(response => {
+                            if (response.data.resultCode === 0) {
+                                let { id, login, email } = response.data.data;
+                                dispatch(authorizedProfile(id, login, email));
+                            }
+                        });
                 }
             });
     }

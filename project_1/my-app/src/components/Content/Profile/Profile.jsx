@@ -18,7 +18,8 @@ const Profile = (props) => {
             {!props.contacts.vk ?undefined:<div>vk:   {props.contacts.vk}</div>}
             {!props.contacts.twitter ?undefined:<div>twitter:   {props.contacts.twitter}</div>}
             {!props.contacts.instagram ?undefined:<div>instagram:   {props.contacts.instagram}</div>}
-      </div>
+          </div>
+          <button onClick = {props.logout()}>Logout</button>
     </div>
 );
 }

@@ -16,6 +16,13 @@ let initialState = {
 const author_reducer = (state = initialState, action) => {
     switch (action.type) {
         case setAuthorizedProfile:
+            if (!action.data.id && !action.data.login && action.data.email) {
+                return {
+                    ...state,
+                    ...action.data,
+                    authorized: false
+                }
+            }
             return {
                 ...state,
                 ...action.data,
@@ -49,6 +56,17 @@ export const logined = () => {
                 if (response.data.resultCode === 0) {
                     let { id, login, email } = response.data.data;
                     dispatch(authorizedProfile(id, login, email));
+                }
+            });
+    }
+}
+
+export const logout = () => {
+    return (dispatch) => {
+        userAPI.logout()
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    dispatch(authorizedProfile({ id: null, login: null, email: null }));
                 }
             });
     }

@@ -1,27 +1,38 @@
 import Newpost from './Newpost';
 import stl from './Posts.module.css';
-
+import { useFormik } from "formik";
 
 const Posts = (props) => {
+    const postform = useFormik({
+      initialValues: {
+            postin: "",
+      },
+    onSubmit: values => {
+        props.addPost(values.postin);
+        console.log(values.postin);
+        postform.resetForm();
+    }
+  });
 
     let postElem = props.posts.posts.map(m => <Newpost message={m.post} key={m.id} likes={m.likes} />)
-  let postsAdd = () => {
-      props.addPost();
-  };
-
-  let onPostChange = (e) => {
-    let text = e.target.value;
-    props.onPostChange(text);
-  };
 
   return (
     <div className={stl.posts_wrapper}>
-      <h2 className={stl.posts_wrapper_myposts}>My posts</h2>
-      <textarea onChange={ onPostChange } className={stl.posts_wrapper_textarea} value={ props.posts.newPostText }/>
-      <div className={stl.posts_wrapper_button}>
-        <button onClick={postsAdd} >Send</button>
-      </div>
-       {postElem}
+        <h2 className={stl.posts_wrapper_myposts}>My posts</h2>
+        <form onSubmit={postform.handleSubmit}>
+                <label htmlFor="postin">Email Address</label>
+                <textarea
+                    id="postin"
+                    name="postin"
+                    type="postin" onChange={postform.handleChange}
+                    className={stl.posts_wrapper_textarea}
+                    value={postform.values.postin} />
+
+        <div className={stl.posts_wrapper_button}>
+            <button type="submit">Send</button>
+        </div>
+        </form>
+        {postElem}
     </div>
 );
 }

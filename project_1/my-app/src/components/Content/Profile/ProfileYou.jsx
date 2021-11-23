@@ -5,6 +5,7 @@ const ProfileYou = (props) => {
     return (
         !props.profilePage ? <Preloader /> : (
             <Profile
+                logout = {props.logout}
                 setProfileStatus = {props.setProfileStatus}
                 status = {props.status}
                 src={props.profilePage.photos.large}

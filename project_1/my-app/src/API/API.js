@@ -41,6 +41,14 @@ export const userAPI = {
         });
     },
 
+    logout() {
+        return instans.delete('auth/login')
+            .then(response => {
+                console.log(response)
+                return response
+        });
+    },
+
     autologin() {
     return instans.get('auth/me',)
         .then(response => {

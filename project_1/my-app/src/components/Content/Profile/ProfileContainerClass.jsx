@@ -4,6 +4,7 @@ import { withRouter } from "react-router";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { setUserProfile, profileRequest, getProfileStatus,setProfileStatus } from "../../../redux/profilePage_reducer";
+import { logout } from '../../../redux/athor_reducer';
 
 class ProfileContainerClass extends React.Component {
 
@@ -29,7 +30,7 @@ const mapStateToUserProps = (state) => {
 };
 
 const ProfileContainer = compose(
-    connect(mapStateToUserProps, { setUserProfile, profileRequest, getProfileStatus,setProfileStatus }),
+    connect(mapStateToUserProps, { setUserProfile, profileRequest, getProfileStatus,setProfileStatus, logout, }),
     withRouter
 )(ProfileContainerClass);
 

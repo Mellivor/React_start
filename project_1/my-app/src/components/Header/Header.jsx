@@ -4,7 +4,6 @@ import Logo from './Logo/Logo';
 
 const Header = (props) => {
     console.log(props)
-    debugger;
   return (
     <header className={stl.header}>
       <nav className={stl.nav}>

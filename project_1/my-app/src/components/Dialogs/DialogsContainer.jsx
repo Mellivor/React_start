@@ -1,4 +1,4 @@
-import { actionCreateraddMessage, actionCreaterUpdMessageText } from '../../redux/messagesPage_reducer';
+import { actionCreateraddMessage } from '../../redux/messagesPage_reducer';
 import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
 import { widthAuthRedirect } from '../../HOC/WithAuthRedirect';
@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
 };
 
 const DialogsContainer = compose(
-    connect(mapStateToProps, { actionCreateraddMessage, actionCreaterUpdMessageText }),
+    connect(mapStateToProps, { actionCreateraddMessage }),
     widthAuthRedirect
 )(Dialogs);
 

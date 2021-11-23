@@ -3,6 +3,7 @@ import stl from './Posts.module.css';
 import { useFormik } from "formik";
 
 const Posts = (props) => {
+
     const postform = useFormik({
       initialValues: {
             postin: "",
@@ -22,10 +23,10 @@ const Posts = (props) => {
         <form onSubmit={postform.handleSubmit}>
                 <label htmlFor="postin">Email Address</label>
                 <textarea
+                    className={stl.posts_wrapper_textarea}
                     id="postin"
                     name="postin"
                     type="postin" onChange={postform.handleChange}
-                    className={stl.posts_wrapper_textarea}
                     value={postform.values.postin} />
 
         <div className={stl.posts_wrapper_button}>

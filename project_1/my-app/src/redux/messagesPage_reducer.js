@@ -1,4 +1,3 @@
-const updMessageText = 'UPDATE_MESSAGE_TEXT';
 const addMessage = 'ADD_MESSAGE';
 
 let initialState = {
@@ -26,22 +25,15 @@ let initialState = {
 
 const messagesPage_reducer = (state = initialState, action) => {
     switch (action.type) {
-        case updMessageText:
-            return {
-                ...state,
-                newMessageText: action.text,
-            };
         case addMessage:
             return{
                 ...state,
-                messages: [...state.messages, { id:7, who: 'you', messages: state.newMessageText }],
-                newMessageText: '',
+                messages: [...state.messages, { id:7, who: 'you', messages: action.message }]
             };
         default:
             return state;
     }
 
 };
-export const actionCreateraddMessage = () => ({ type: addMessage });
-export const actionCreaterUpdMessageText = (text) => ({ type: updMessageText, text: text });
+export const actionCreateraddMessage = (message) => ({ type: addMessage, message });
 export default messagesPage_reducer;

@@ -1,19 +1,22 @@
 import Dialogitem from './Dialogitem/Dialogitem';
 import Message from './Message/Message';
 import stl from './Dialogs.module.css';
+import { useFormik } from "formik";
 
 const Dialogs = (props) => {
     let messageElement = props.state.messages.map (m => <Message message={m.messages} key = {m.id} who ={m.who} />)
     let dialogsElement = props.state.dialogs.map(d => <Dialogitem name={d.name} key = {d.id} id={d.id} />)
     let friendElement = props.state.friends.map(f => <Dialogitem name={f.name}  key = {f.id} id={f.id} />)
 
-    let messageAdd = () => {
-        props.actionCreateraddMessage();
-    };
-    let texTupdatMessage = (e) => {
-        let text = e.target.value;
-        props.actionCreaterUpdMessageText(text);
-    };
+    const dialogsform = useFormik({
+      initialValues: {
+            message: "",
+      },
+    onSubmit: values => {
+        props.actionCreateraddMessage(values.message);
+        dialogsform.resetForm();
+    }
+  });
 
     return (
         <div className={stl.dialogs}>
@@ -28,12 +31,20 @@ const Dialogs = (props) => {
             <div className={stl.separator}></div>
             <div className={stl.messages}>
                 {messageElement}
-                <textarea value={props.state.newMessageText}
-                    onChange={ texTupdatMessage } className={stl.textarea} />
+                <form onSubmit={dialogsform.handleSubmit}>
+                    <textarea
+                        className={stl.textarea}
+                        id="message"
+                        name="message"
+                        type="message"
+                        onChange={dialogsform.handleChange}
+                        value={dialogsform.values.message} />
+
                 <div className={stl.button}>
-                <button onClick = {messageAdd}>Send</button>
+                <button type="submit" >Send</button>
                 </div>
-            </div>
+                </form>
+                </div>
         </div>
     )
 };

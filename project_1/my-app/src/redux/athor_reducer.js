@@ -51,7 +51,7 @@ export const authorizedProfile = (id, login, email) => ({ type: setAuthorizedPro
 
 export const logined = () => {
     return (dispatch) => {
-        userAPI.autologin()
+        return userAPI.autologin()
             .then(response => {
                 if (response.data.resultCode === 0) {
                     let { id, login, email } = response.data.data;

@@ -104,10 +104,10 @@ export const setloaded = () => ({ type: stateIsLoaded});
 export const updateStatusAC = (loading) => ({ type: updateStatus, loading});
 export const togleIsFolowingAC = (loading, userId) => ({ type: togleIsFolowing, userId, loading});
 
-export const getUsers = (currentPage, pageSize) => {
+export const requesTusers = (currentPage, pageSize) => {
     return (dispatch) => {
         dispatch(setloading());
-        userAPI.getUsers(currentPage, pageSize).then(response => {
+        userAPI.requesTusers(currentPage, pageSize).then(response => {
             dispatch(setUsers(response.items));
             dispatch(setTotalUsersCount(response.totalCount));
             dispatch(setloaded())

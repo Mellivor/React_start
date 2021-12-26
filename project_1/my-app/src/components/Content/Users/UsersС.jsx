@@ -4,12 +4,12 @@ import Users from './Users';
 class UsersC extends React.Component {
 
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize);
+        this.props.requesTusers(this.props.currentPage, this.props.pageSize);
         }
 
     onPageChanged = (p) => {
         this.props.setCurrentPage(p);
-        this.props.getUsers(p, this.props.pageSize);
+        this.props.requesTusers(p, this.props.pageSize);
     }
     render() {
         return (

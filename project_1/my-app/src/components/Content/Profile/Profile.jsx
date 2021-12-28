@@ -1,6 +1,6 @@
 import Avatar from './Avatar/Avatar';
 import stl from './Profile.module.css';
-import ProfileStatus from './ProfileStatus';
+import ProfileStatusWithHooks from './ProfileStatusWthHooks';
 
 
 const Profile = (props) => {
@@ -8,7 +8,7 @@ const Profile = (props) => {
     <div className={stl.profile}>
       <Avatar src={props.src} />
           <div className={stl.text}>
-              <ProfileStatus status={props.status} setProfileStatus={ props.setProfileStatus }/>
+              <ProfileStatusWithHooks status={props.status} setProfileStatus={ props.setProfileStatus }/>
         <h2 className={stl.name}>
           {props.name}
         </h2>

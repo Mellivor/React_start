@@ -1,7 +1,7 @@
 import { logined } from "./athor_reducer";
 
 
-const stateIsLoaded = 'IS_LOADED';
+const IS_LOADED = 'mellivor-network/app/stateIsLoaded';
 
 
 let initialState = {
@@ -11,7 +11,7 @@ let initialState = {
 const app_reducer = (state = initialState, action) => {
     switch (action.type) {
 
-        case stateIsLoaded:
+        case IS_LOADED:
             return { ...state, authorized: true }
 
         default:
@@ -19,16 +19,17 @@ const app_reducer = (state = initialState, action) => {
     }
 
 };
-export const setloaded = () => ({ type: stateIsLoaded });
+export const setloaded = () => ({ type: IS_LOADED });
 
 
-export const initializeApp = () => (dispatch)=>{
+export const initializeApp = () => async (dispatch)=>{
 
-        let dispatchResolt = dispatch(logined())
-        dispatchResolt.then(() => {
+        let response = await dispatch(logined())
+        // dispatchResolt.then(() => {
+        if (!response) {
+                dispatch(setloaded())
+        }
 
-            dispatch(setloaded())
-         })
 
 }
 

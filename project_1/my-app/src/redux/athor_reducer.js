@@ -50,14 +50,14 @@ export const authorizedProfile = (id, login, email) => ({ type: setAuthorizedPro
 
 
 export const logined = () => {
-    return (dispatch) => {
-        return userAPI.autologin()
-            .then(response => {
-                if (response.data.resultCode === 0) {
-                    let { id, login, email } = response.data.data;
-                    dispatch(authorizedProfile(id, login, email));
-                }
-            });
+    return async (dispatch) => {
+        const response = await userAPI.autologin()
+        debugger;
+        if (response.data.resultCode === 0) {
+            let { id, login, email } = response.data.data;
+            dispatch(authorizedProfile(id, login, email));
+        }
+
     }
 }
 
@@ -73,7 +73,6 @@ export const logout = () => {
 }
 
 export const loginFormik = (email, password, rememberMe) => {
-    console.log(email + password + rememberMe)
     return (dispatch) => {
         userAPI.login(email, password, rememberMe)
             .then(response => {

@@ -1,4 +1,4 @@
-import { userAPI, profileAPI } from "../API/API";
+import { profileAPI } from "../API/API";
 
 const addPost = 'ADD_POST';
 const deletePost = 'DELETE_POST';
@@ -25,7 +25,7 @@ const profilePage_reducer = (state = initialState, action) => {
         case deletePost:
             return {
                 ...state,
-                posts: state.posts.filter(p=> p.id !=action.postId)
+                posts: state.posts.filter(p=> p.id !==action.postId)
             };
         case setProfile:
             return {
@@ -48,7 +48,7 @@ export const setStatusAC = (status) => ({ type: setStatus, status });
 
 export const profileRequest = (yourId) => {
     return (dispatch) => {
-        userAPI.profilInfo(yourId)
+        profileAPI.profilInfo(yourId)
             .then(response => {
                 dispatch(setUserProfile(response));
             });

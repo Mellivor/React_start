@@ -10,7 +10,7 @@ const setPreviousPagesList = 'SET_PAGEST_LISTS';
 const stateIsLoading = 'IS_LOADING';
 const stateIsLoaded = 'IS_LOADED';
 const updateStatus = 'UPDATE_STATUS';
-const togleIsFolowing = 'TOGLE_IS_FOLLOWING';
+const toggleIsFolowing = 'TOGLE_IS_FOLLOWING';
 
 
 let initialState = {
@@ -79,7 +79,7 @@ const usersPage_reducer = (state = initialState, action) => {
         case updateStatus:
             return { ...state, changingStatus: action.loading }
 
-        case togleIsFolowing:
+        case toggleIsFolowing:
             return {
                 ...state,
                 loadedButtons: action.loading ?
@@ -102,40 +102,40 @@ export const previousPagesList = () => ({ type: setPreviousPagesList});
 export const setloading = () => ({ type: stateIsLoading});
 export const setloaded = () => ({ type: stateIsLoaded});
 export const updateStatusAC = (loading) => ({ type: updateStatus, loading});
-export const togleIsFolowingAC = (loading, userId) => ({ type: togleIsFolowing, userId, loading});
+export const toggleIsFolowingAC = (loading, userId) => ({ type: toggleIsFolowing, userId, loading});
 
 export const requesTusers = (currentPage, pageSize) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(setloading());
-        userAPI.requesTusers(currentPage, pageSize).then(response => {
+        const response = await userAPI.requesTusers(currentPage, pageSize)
             dispatch(setUsers(response.items));
             dispatch(setTotalUsersCount(response.totalCount));
             dispatch(setloaded())
-        });
+
     }
 };
 
 export const unFollow = (userId) => {
-    return (dispatch) => {
-        dispatch(togleIsFolowingAC(true, userId));
-        userAPI.unfollow(userId).then(response => {
+    return async (dispatch) => {
+        dispatch(toggleIsFolowingAC(true, userId));
+        const response = await userAPI.unfollow(userId)
             if (response === 0) {
                 dispatch(unFollowSucces(userId));
             }
-            dispatch(togleIsFolowingAC(false, userId));
-        })
+            dispatch(toggleIsFolowingAC(false, userId));
+
     }
 };
 
 export const follow = (userId) => {
-    return (dispatch) => {
-        dispatch(togleIsFolowingAC(true, userId))
-            userAPI.follow(userId).then(response => {
+    return async (dispatch) => {
+        dispatch(toggleIsFolowingAC(true, userId))
+           const response = await userAPI.follow(userId)
                 if (response === 0) {
                     dispatch(followSucces(userId))
                 }
-                dispatch(togleIsFolowingAC(false, userId))
-            })
+                dispatch(toggleIsFolowingAC(false, userId))
+
     }
 };
 

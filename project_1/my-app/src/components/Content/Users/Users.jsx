@@ -23,7 +23,7 @@ let Users = (props) => {
         src={u.photos.large}
         changingStatus={props.changingStatus}
         loadedButtons={props.loadedButtons}
-        togleIsFolowingAC={props.togleIsFolowingAC}
+        toggleIsFolowingAC={props.toggleIsFolowingAC}
     />);
 
 

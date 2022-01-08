@@ -47,29 +47,23 @@ export const setUserProfile = (profile) => ({ type: setProfile, profile });
 export const setStatusAC = (status) => ({ type: setStatus, status });
 
 export const profileRequest = (yourId) => {
-    return (dispatch) => {
-        profileAPI.profilInfo(yourId)
-            .then(response => {
+    return async (dispatch) => {
+        const response = await profileAPI.profilInfo(yourId)
                 dispatch(setUserProfile(response));
-            });
     }
 };
 export const getProfileStatus = (yourId) => {
-    return (dispatch) => {
-        profileAPI.getStatus(yourId)
-            .then(response => {
+    return async (dispatch) => {
+        const response = await profileAPI.getStatus(yourId)
                 dispatch(setStatusAC(response));
-            });
     }
 }
 export const setProfileStatus = (status) => {
-    return (dispatch) => {
-        profileAPI.updateStatus(status)
-            .then(response => {
+    return async (dispatch) => {
+        const response = await profileAPI.updateStatus(status)
                 if (response.data.resultCode === 0) {
                 dispatch(setStatusAC(status));
             }
-            });
     }
 }
 export default profilePage_reducer;

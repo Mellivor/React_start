@@ -27,7 +27,7 @@ class UsersC extends React.Component {
                 pageList={this.props.pageList}
                 changingStatus={this.props.changingStatus}
                 loadedButtons={this.props.loadedButtons}
-                togleIsFolowingAC={this.props.togleIsFolowingAC}
+                toggleIsFolowingAC={this.props.toggleIsFolowingAC}
             />)
 }
 }

@@ -25,7 +25,6 @@ export const setloaded = () => ({ type: IS_LOADED });
 export const initializeApp = () => async (dispatch)=>{
 
         let response = await dispatch(logined())
-        // dispatchResolt.then(() => {
         if (!response) {
                 dispatch(setloaded())
         }

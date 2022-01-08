@@ -3,7 +3,7 @@ import { compose } from "redux";
 import {
     follow, unFollow, setUsers, setCurrentPage, setTotalUsersCount,
     nextPagesList, previousPagesList, setloading, setloaded,
-    updateStatusAC, togleIsFolowingAC, requesTusers,
+    updateStatusAC, toggleIsFolowingAC, requesTusers,
 } from "../../../redux/usersPage_reducer";
 import { getChangingStatus, getCurrentPage, getLoaded, getLoadedButtons, getPageList, getPageSize, getTotalUsers, getUsers } from "../../../redux/users_selectors";
 import UsersC from "./UsersС";
@@ -38,7 +38,7 @@ const mapStateToProps = (state) => {
 const UsersContainer = compose(
     connect(mapStateToProps, {
     follow, unFollow, setUsers, setCurrentPage,setTotalUsersCount, nextPagesList,
-    previousPagesList, setloading, setloaded, updateStatusAC, togleIsFolowingAC, requesTusers}),
+    previousPagesList, setloading, setloaded, updateStatusAC, toggleIsFolowingAC, requesTusers}),
 
 )(UsersC);
 
